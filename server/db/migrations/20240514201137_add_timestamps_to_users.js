@@ -1,7 +1,7 @@
 // Note the use of alterTable and dropColumn in these functions!
 exports.up = (knex) => {
   return knex.schema.alterTable('users', (table) => {
-    table.timestamps(true, true);
+    table.timestamp(true, true);
   })
 };
 
