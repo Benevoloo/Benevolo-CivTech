@@ -7,16 +7,19 @@ exports.seed = async function(knex) {
   await knex('neighbors').del()
   await knex('neighbors').insert([
     {
+      id: 1,
       username: 'hello1',
       password_hash: '123',
       zipcode: '10705'
     },
     {
+      id: 2,
       username: 'hello2',
       password_hash: '123',
       zipcode: '10705'
     },
     {
+      id: 3,
       username: 'hello3',
       password_hash: '123',
       zipcode: '10705'

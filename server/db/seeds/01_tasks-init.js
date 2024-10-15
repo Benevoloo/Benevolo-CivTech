@@ -9,7 +9,7 @@ exports.seed = async function(knex) {
     {
       title: 'Moving furniture', 
       body: 'Hey I just need help rearranging some furniture in my home. Just a couch and a table with chairs. Thanks!', 
-      helper_id: 4, 
+      helper_id: 3, 
       neighbor_id: 2, 
       zipcode: 10705,
       status: 'In-progress.',
@@ -19,7 +19,7 @@ exports.seed = async function(knex) {
     {
       title: 'Moving furniture', 
       body: 'Hey I just need help rearranging some furniture in my home. Just a couch and a table with chairs. Thanks!', 
-      helper_id: 5, 
+      helper_id: 1, 
       neighbor_id: 1, 
       zipcode: 10705,
       status: 'In-progress.',
@@ -29,7 +29,7 @@ exports.seed = async function(knex) {
     {
       title: 'Moving furniture', 
       body: 'Hey I just need help rearranging some furniture in my home. Just a couch and a table with chairs. Thanks!', 
-      helper_id: 6, 
+      helper_id: 2, 
       neighbor_id: 3, 
       zipcode: 10705,
       status: 'In-progress.',
