@@ -10,7 +10,7 @@ export default function SiteHeadingAndNav() {
     <nav>
       <ul>
         <li><NavLink to='/'>Home</NavLink></li>
-
+        
         {
           currentUser
             ? <>
