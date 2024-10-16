@@ -119,13 +119,18 @@ img {
   font-size: large;
   padding: 20px;
 
-
 }
-
-
 
 section {
   background-color: #EEBC32;
   border: #000;
   border-radius: 20px;
+}
+
+footer {
+  max-width: 100%;
+}
+
+.sources {
+  font-size: x-small;
 }

@@ -10,7 +10,7 @@ export default function SignUpPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+
 
   // users shouldn't be able to see the sign up page if they are already logged in.
   // if the currentUser exists in the context, navigate the user to 
