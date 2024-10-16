@@ -1,6 +1,6 @@
 const Task = require('../models/Task')
 
-console.log(Task)
+// console.log(Task)
 
 exports.createTasks = async (req, res) => {
   const { title, body, zipcode, status, created_at, expiration_date, neighbor_id } = req.body;

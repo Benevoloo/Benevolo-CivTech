@@ -10,10 +10,10 @@ export default function SignUpPage() {
   const navigate = useNavigate();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [errorText, setErrorText] = useState('');
-  const [name, setName] = useState('')
+  // const [name, setName] = useState('')
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [zipcode, setZipcode] = useState('');
+  // const [zipcode, setZipcode] = useState('');
 
   // users shouldn't be able to see the sign up page if they are already logged in.
   // if the currentUser exists in the context, navigate the user to 
@@ -29,7 +29,7 @@ export default function SignUpPage() {
     if (error) return setErrorText(error.message);
 
     setCurrentUser(user);
-    navigate('/');
+    navigate('/neighbor');
   };
 
   const handleChange = (event) => {
@@ -45,7 +45,7 @@ export default function SignUpPage() {
     <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
       <h2 id="create-heading">We would love to help!</h2>
 
-      {/* name element */}
+      {/* name element
       <label htmlFor="name" placeholder="Insert name">Name</label>
       <input
         autoComplete="off"
@@ -54,7 +54,7 @@ export default function SignUpPage() {
         name="name"
         onChange={handleChange}
         value={name}
-      />
+      /> */}
 
       {/* username element */}
       <label htmlFor="username">Username</label>
@@ -79,7 +79,7 @@ export default function SignUpPage() {
       />
       
       {/* Zipcode element */}
-      <label htmlFor="zipcode">ZipCode</label>
+      {/* <label htmlFor="zipcode">ZipCode</label>
       <input
         autoComplete="off"
         type="integer"
@@ -88,14 +88,14 @@ export default function SignUpPage() {
         onChange={handleChange}
         value={zipcode}
         maxLength="5"
-      />
+      /> */}
 
       {/* In reality, we'd want a LOT more validation on signup, so add more things if you have time
         <label htmlFor="password-confirm">Password Confirm</label>
         <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
       */}
 
-    <button>Sign Up Now!</button>
+    <button>Sign Up Now!</button> <Link to='/neighbor'></Link>
     </form>
     {!!errorText && <p>{errorText}</p>}
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
