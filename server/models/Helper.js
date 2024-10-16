@@ -9,11 +9,12 @@ class Helper {
   // static methods to hide the hashed password of users before sending user data 
   // to the client. Since we want to keep the #passwordHash property private, we 
   // provide the isValidPassword instance method as a way to indirectly access it.
-  constructor({ id, username, password_hash , zipcode}) {
+  constructor({ id, username, password_hash, zipcode, bio}) {
     this.id = id;
     this.username = username;
     this.#passwordHash = password_hash;
     this.zipcode = zipcode;
+    this.bio = bio;
   }
 
   // This instance method takes in a plain-text password and returns true if it matches
@@ -34,7 +35,7 @@ class Helper {
 
   static async listHelpersByZip(zipcode) {
     const query = `SELECT * FROM helpers WHERE zipcode = ?`;
-    const result = await knex.raw(query);
+    const result = await knex.raw(query, [zipcode]);
     return results.rows.map((rawUserData) => new Helper(rawUserData))
   }
 
@@ -73,14 +74,19 @@ class Helper {
 
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash. 
-  static async update(id, username) {
+  static async update(username, contact_info, zipcode, bio, id) {
     const query = `
       UPDATE helpers
-      SET username=?
+      SET 
+      username = COALESCE (?, username),
+      contact_info = COALESCE (?, contact_info),
+      zipcode = COALESCE (?, zipcode),
+      bio = COALESCE (?, bio)
       WHERE id=?
       RETURNING *
     `
-    const result = await knex.raw(query, [username, id])
+    // patch
+    const result = await knex.raw(query, [username, contact_info, zipcode, bio, id])
     const rawUpdatedUser = result.rows[0];
     return rawUpdatedUser ? new Helper(rawUpdatedUser) : null;
   };
