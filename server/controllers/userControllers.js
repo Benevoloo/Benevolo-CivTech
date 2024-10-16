@@ -37,4 +37,21 @@ exports.updateUser = async (req, res) => {
   const updatedUser = await User.update(id, username);
   if (!updatedUser) return res.sendStatus(404)
   res.send(updatedUser);
+
+
+//Cloudinary endpoint to handle image uplaods
+const cloudinary = require('../utils/cloudinaryConfig');
+const uploadImage = async (req, res) => {
+  try {
+    const fileStr = req.body.data;
+    const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+      upload_preset: 'ml_default',
+    });
+    res.json({ url: uploadedResponse.secure_url });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Image upload failed' });
+  }
+};
+uploadImage()
 };
