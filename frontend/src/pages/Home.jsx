@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 //import Sign up button
 export default function HomePage() {
 
@@ -63,8 +65,8 @@ export default function HomePage() {
             Are you willing to help others and connect with your community?
           </p>
 
-          <button className="signUpButton">Sign Up As a Helper</button>
-        </section>
+          <button className="signUpButton"> <Link to="/sign-up">Sign Up As a Helper</Link></button>
+          </section>
 
         <br />
 
@@ -72,7 +74,7 @@ export default function HomePage() {
           <img />
           <h4 className="optionTitle">Become A Neighbor</h4>
           <p className="roleDesc neighborDesc">Are you homebound, disabled, or elderly in need of assistance, and wanting to make friends?</p>
-          <button className="signUpButton">Sign Up As A Neighbor</button>
+          <button className="signUpButton"><Link to="/sign-up">Sign Up As a Neighbor</Link></button>
         </section>
 
       </section>

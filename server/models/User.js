@@ -9,7 +9,7 @@ class User {
   // static methods to hide the hashed password of users before sending user data 
   // to the client. Since we want to keep the #passwordHash property private, we 
   // provide the isValidPassword instance method as a way to indirectly access it.
-  constructor({ id, username, password_hash, is_neighbor}) {
+  constructor({ id, username, password_hash}) {
     this.id = id;
     this.username = username;
     this.#passwordHash = password_hash;

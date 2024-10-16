@@ -133,4 +133,14 @@ footer {
 
 .sources {
   font-size: x-small;
+
+}
+
+.taskCard {
+  background-color: #1b2930;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: left;
+  width: 250px;
+
 }
