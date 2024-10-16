@@ -49,6 +49,6 @@ exports.deleteTask = async (req, res) => {
   const { id } = req.params;
 
   const deletedTask = await Task.deleteTask(id)
-
+  
   res.send(deletedTask)
 }
