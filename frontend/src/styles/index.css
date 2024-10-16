@@ -3,7 +3,8 @@ body {
   margin: 0;
 }
 
-input, label {
+input,
+label {
   display: block;
 }
 
@@ -51,4 +52,80 @@ form {
   color: #EEBC32;
   font-weight: bold;
   font-style: italic;
+}
+
+/* Home page CSS */
+.homeHeader {
+  font-size: 50px;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.whyBenev {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+  padding: 20px;
+
+
+}
+
+.hookImg,
+img {
+  display: flex;
+  justify-content: center;
+  max-width: 90%;
+  border-radius: 20px;
+
+}
+
+.choices,
+.userTypes,
+.aboutParas {
+  display: flex;
+  flex-basis: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  size: 20px;
+  margin: 10px;
+  padding: 20px;
+}
+
+.portal {
+  margin: 20px;
+  padding: 25px;
+  background-color: green;
+}
+
+.para {
+  background-color: rebeccapurple;
+  margin: 20px;
+  padding: 25px;
+  width: 500px;
+  border-radius: 20px;
+
+}
+
+.portal {
+  width: 500px;
+}
+
+.signUpButton {
+  background-color: aquamarine;
+  border-color: blue;
+  border-radius: 25px;
+  font-size: large;
+  padding: 20px;
+
+
+}
+
+
+
+section {
+  background-color: #EEBC32;
+  border: #000;
+  border-radius: 20px;
 }
