@@ -8,6 +8,10 @@ exports.up = function(knex) {
     table.integer('helper_id');
     table.integer('task_id');
   })
+  .alterTable('interests', (table) => {
+    table.foreign('task_id').references('id').inTable('tasks');
+    table.foreign('helper_id').references('id').inTable('users');
+  })
 };
 
 /**
