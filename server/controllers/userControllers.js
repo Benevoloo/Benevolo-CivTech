@@ -16,6 +16,27 @@ exports.listUsers = async (req, res) => {
   res.send(users);
 };
 
+exports.listUsersByZip = async (req, res) => {
+  const { zipcode } = req.body;
+  
+  const users = await User.listUsersByZip(zipcode);
+  res.send(users);
+};
+
+exports.findUserById = async (req, res) => {
+  const { id } = req.params
+
+  const user = await User.find(id)
+  res.send(user)
+}
+
+exports.findUserByUsername = async (req, res) => {
+  const { username } = req.body
+
+  const user = await User.findByUsername(username)
+  res.send(user)
+}
+
 exports.showUser = async (req, res) => {
   const { id } = req.params;
 
