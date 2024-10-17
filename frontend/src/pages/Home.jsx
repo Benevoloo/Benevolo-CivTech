@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 //import Sign up button
 export default function HomePage() {
 
@@ -21,11 +23,13 @@ export default function HomePage() {
       <section className="choices aboutParas">
         {/* general class name first (this is a paragraph element) and then the specific element class.  */}
         <p className="para homePara1">
-          There are currently 8,097,282¹ residents living together in NYC. Yet,
+          <h3 className="paraTitle">What is Benevolo?</h3>
+          There are currently 8,097,282¹ residents living together in NYC. Community is more important than ever,
+          especially when you have so many kinds of people packed into a small 469 square mile² city.
+
+
 
           <ul>
-
-            <li> Stats about how many people are friends with their neighbors</li>
 
             <li> Stats about how lonely everyone is</li>
 
@@ -38,7 +42,8 @@ export default function HomePage() {
 
 
         <p className="para homePara2">
-          why join benevolo? connect with your community, make friends, and do some good in your day to day.
+          <h3 className="paraTitle">Why Join Benevolo?</h3>
+
 
         </p>
       </section>
@@ -60,8 +65,8 @@ export default function HomePage() {
             Are you willing to help others and connect with your community?
           </p>
 
-          <button className="signUpButton">Sign Up As a Helper</button>
-        </section>
+          <button className="signUpButton"> <Link to="/sign-up">Sign Up As a Helper</Link></button>
+          </section>
 
         <br />
 
@@ -69,14 +74,20 @@ export default function HomePage() {
           <img />
           <h4 className="optionTitle">Become A Neighbor</h4>
           <p className="roleDesc neighborDesc">Are you homebound, disabled, or elderly in need of assistance, and wanting to make friends?</p>
-          <button className="signUpButton">Sign Up As A Neighbor</button>
+          <button className="signUpButton"><Link to="/sign-up">Sign Up As a Neighbor</Link></button>
         </section>
 
       </section>
     </section>
 
     <footer>
-
+      <section className="sourcesFooter">
+        <h5>Sources</h5>
+        <p className="source">1. World Population Review. “New York City, New York Population 2024.” Worldpopulationreview.com, 2024, worldpopulationreview.com/us-cities/new-york/new-york.</p>
+        <p className="source">2. Coordinated Public Transit-Human Services Transportation Plan for NYMTC Region • Final Chapter 3. Overview of New York City.</p>
+        <p className="source">3. </p>
+        <p className="source"></p>
+      </section>
     </footer>
 
   </>
