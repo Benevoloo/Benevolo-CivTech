@@ -24,6 +24,7 @@ export const getPatchOptions = (body) => ({
 
 export const fetchHandler = async (url, options = {}) => {
   try {
+    //url must be the url of the server (port num is important)
     const response = await fetch(url, options);
     const { ok, status, headers } = response;
     if (!ok) throw new Error(`Fetch failed with status - ${status}`, { cause: status });
