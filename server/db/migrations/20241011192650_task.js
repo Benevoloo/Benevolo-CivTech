@@ -11,8 +11,8 @@ exports.up = function(knex) {
     table.string('status').notNullable();
     table.string('created_at').notNullable();
     table.string('expiration_date').notNullable();
-    table.integer('helper_id')
-    table.integer('neighbor_id')
+    table.integer('helper_id').references('id').inTable("users")
+    table.integer('neighbor_id').references('id').inTable("users").notNullable();
   })
 };
 

@@ -31,6 +31,26 @@ class User {
     return result.rows.map((rawUserData) => new User(rawUserData));
   }
 
+  // Fetches ALL users from the users table that are in a certain zipcode,
+  // uses the constructor to format each user (and hide their password hash), and returns.
+  static async listUsersByZip(zipcode) {
+    const query = `SELECT * FROM users WHERE zipcode = ?`;
+    const result = await knex.raw(query, [zipcode]);
+    return result.rows.map((rawUserData) => new User(rawUserData))
+  }
+
+  static async listHelpersByZip(zipcode) {
+    const query = `SELECT * FROM users WHERE zipcode = ? AND is_neighbor = false`;
+    const result = await knex.raw(query, [zipcode]);
+    return result.rows.map((rawUserData) => new User(rawUserData))
+  }
+
+  static async listNeighborsByZip(zipcode) {
+    const query = `SELECT * FROM users WHERE zipcode = ? AND is_neighbor = true`;
+    const result = await knex.raw(query, [zipcode]);
+    return result.rows.map((rawUserData) => new User(rawUserData))
+  }
+
   // Fetches A single user from the users table that matches
   // the given user id. If it finds a user, uses the constructor
   // to format the user and returns or returns null if not.
@@ -53,27 +73,32 @@ class User {
   // Hashes the given password and then creates a new user
   // in the users table. Returns the newly created user, using
   // the constructor to hide the passwordHash. 
-  static async create(username, password) {
+  static async create(username, password, contact_info, zipcode, bio, is_neighbor) {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await authUtils.hashPassword(password);
 
-    const query = `INSERT INTO users (username, password_hash)
-      VALUES (?, ?) RETURNING *`;
-    const result = await knex.raw(query, [username, passwordHash]);
+    const query = `INSERT INTO users (username, password_hash, contact_info, zipcode, bio, is_neighbor)
+      VALUES (?, ?, ?, ?, ?, ?) RETURNING *`;
+    const result = await knex.raw(query, [username, passwordHash, contact_info, zipcode, bio, is_neighbor]);
     const rawUserData = result.rows[0];
     return new User(rawUserData);
   }
 
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash. 
-  static async update(id, username) {
+  static async update(username, contact_info, zipcode, bio, id) {
     const query = `
-      UPDATE users
-      SET username=?
+      UPDATE helpers
+      SET 
+      username = COALESCE (?, username),
+      contact_info = COALESCE (?, contact_info),
+      zipcode = COALESCE (?, zipcode),
+      bio = COALESCE (?, bio)
       WHERE id=?
       RETURNING *
     `
-    const result = await knex.raw(query, [username, id])
+    // patch
+    const result = await knex.raw(query, [username, contact_info, zipcode, bio, id])
     const rawUpdatedUser = result.rows[0];
     return rawUpdatedUser ? new User(rawUpdatedUser) : null;
   };
