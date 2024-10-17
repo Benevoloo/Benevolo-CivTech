@@ -8,7 +8,7 @@ export default function HomePage() {
   return <>
     {/* user visual "hook"-- how can we showcase benevelos values and use them to draw users into the idea? */}
     <section className="homeHeader">
-      <h1 className="userHook">Community is Key.</h1>
+      <h1 className="userHook" id="hook">Community is Key.</h1>
     </section>
 
     <br />
@@ -65,7 +65,7 @@ export default function HomePage() {
             Are you willing to help others and connect with your community?
           </p>
 
-          <button className="signUpButton"> <Link to="/sign-up">Sign Up As a Helper</Link></button>
+          <button className="signUpButton"> <Link to="/sign-up-helper">Sign Up As a Helper</Link></button>
         </section>
 
         <br />
@@ -74,7 +74,7 @@ export default function HomePage() {
           <img />
           <h4 className="optionTitle">Become A Neighbor</h4>
           <p className="roleDesc neighborDesc">Are you homebound, disabled, or elderly in need of assistance, and wanting to make friends?</p>
-          <button className="signUpButton"><Link to="/sign-up">Sign Up As a Neighbor</Link></button>
+          <button className="signUpButton"><Link to="/sign-up-neighbor">Sign Up As a Neighbor</Link></button>
         </section>
 
       </section>
