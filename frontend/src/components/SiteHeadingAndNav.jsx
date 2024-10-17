@@ -6,11 +6,11 @@ export default function SiteHeadingAndNav() {
   const { currentUser } = useContext(CurrentUserContext);
 
   return <header>
-    <a id='logo' href='/'>Benevolo</a>
+    <a className="benevoloIconNav" id='logo' href='/'>Benevolo</a>
     <nav>
       <ul>
         <li><NavLink to='/'>Home</NavLink></li>
-        
+
         {
           currentUser
             ? <>
