@@ -55,7 +55,7 @@ app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser);
 
 app.get('/api/tasks/by-zipcode/:zipcode', taskControllers.listByZipcode)
 app.get('/api/task/:id', taskControllers.getTaskById)
-app.post('/api/tasks', taskControllers.createTasks)
+app.post('/api/neighbor/:neighbor_id/tasks', taskControllers.createTasks)
 app.patch('/api/task/:id', taskControllers.updateTask)
 app.delete('/api/task/:id', taskControllers.deleteTask)
 
