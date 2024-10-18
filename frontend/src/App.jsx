@@ -13,6 +13,7 @@ import { checkForLoggedInUser } from './adapters/auth-adapter';
 import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import NeighborTaskInputCard from './pages/NeighborBasePage';
+import HelperBasePage from './pages/HelperBasePage'
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
@@ -33,7 +34,7 @@ export default function App() {
         <Route path='/users/:id' element={<UserPage />} />
         <Route path='*' element={<NotFoundPage />} />
         <Route path='/neighbor' element={<NeighborTaskInputCard/>} />
-
+        <Route path='/helper' element={<HelperBasePage/>} />
       </Routes>
     </main>
   </>;

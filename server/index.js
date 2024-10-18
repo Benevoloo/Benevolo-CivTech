@@ -43,9 +43,12 @@ app.post('/api/users', userControllers.createUser);
 
 // These actions require users to be logged in (authentication)
 // Express lets us pass a piece of middleware to run for a specific endpoint
-app.get('/api/users', checkAuthentication, userControllers.listUsers);
+app.get('/api/users', checkAuthentication, userControllers.listUsers); //tested
+app.get('/api/users/by-zip', checkAuthentication, userControllers.listUsersByZip); //
+app.get('/api/user/by-username', checkAuthentication, userControllers.findUserByUsername);
 app.get('/api/users/:id', checkAuthentication, userControllers.showUser);
 app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser);
+
 
 
 

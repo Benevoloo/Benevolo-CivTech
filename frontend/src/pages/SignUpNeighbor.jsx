@@ -16,13 +16,15 @@ export default function SignUpNeighbor() {
   const [password, setPassword] = useState('');
   const [zipcode, setZipcode] = useState('');
   //email or number for contacting 
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [contact_info, setContactInfo] = useState('');
   //bio
   const [bio, setBio] = useState('');
 
   //kind of user (is neigbor? is helper?)
-  const [userTypeIsNeighbor] = useState(true)
+  // const [is_neighbor, setIs_Neighbor] = useState(true)
+
+  const is_neighbor = true
+
 
 
 
@@ -38,7 +40,7 @@ export default function SignUpNeighbor() {
 
     if (!username || !password) return setErrorText('Missing username or password');
 
-    const [user, error] = await createUser({ name, username, password, zipcode, email, phoneNumber, bio, userTypeIsNeighbor });
+    const [user, error] = await createUser({ username, password, name, contact_info, zipcode, bio, is_neighbor });
     if (error) return setErrorText(error.message);
 
     console.log(errorText)
@@ -57,8 +59,7 @@ export default function SignUpNeighbor() {
     if (name === 'username') setUsername(value);
     if (name === 'password') setPassword(value);
     if (name === 'zipcode') setZipcode(value);
-    if (name === 'email') setEmail(value);
-    if (name === 'phoneNumber') setPhoneNumber(value);
+    if (name === 'contact-info') setContactInfo(value);
     if (name === 'bio') setBio(value);
 
   };
@@ -126,24 +127,14 @@ export default function SignUpNeighbor() {
         maxLength="5"
       />
 
-      <label htmlFor="setting-email">Email</label>
+      <label htmlFor="setting-contact-info">Contact Info</label>
       <input
         autoComplete="on"
         type="text"
-        id="setting-email"
-        name="email"
+        id="setting-contact-info"
+        name="contact-info"
         onChange={handleChange}
-        value={email}
-      />
-
-      <label htmlFor="setting-phone-number">Phone Number</label>
-      <input
-        autoComplete="on"
-        type="text"
-        id="setting-phone-number"
-        name="phoneNumber"
-        onChange={handleChange}
-        value={phoneNumber}
+        value={contact_info}
       />
 
       <label htmlFor="creating-bio">Tell Us About Yourself</label>
