@@ -2,6 +2,7 @@ import { useContext, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 // import SignUpPage from './pages/SignUp';
+import SignUpPath from './pages/SignUpPath';
 import SignUpHelper from './pages/SignUpHelper';
 import SignUpNeighbor from './pages/SignUpNeighbor';
 import LoginPage from './pages/Login';
@@ -25,6 +26,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/sign-up-header' element={<SignUpPath />} />
         <Route path='/sign-up-helper' element={<SignUpHelper />} />
         <Route path='/sign-up-neighbor' element={<SignUpNeighbor />} />
         <Route path='/users' element={<UsersPage />} />

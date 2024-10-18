@@ -1,6 +1,7 @@
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  margin: 0;
+  margin-top: 77px;
+  /* top: 77px; */
 }
 
 input,
@@ -138,6 +139,10 @@ img {
 
 .portal {
   width: 500px;
+}
+
+.signUpPage-Header {
+  font-family: 'Holen Vintage', 'Serif';
 }
 
 .signUpButton {
