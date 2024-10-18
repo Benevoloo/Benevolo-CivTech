@@ -14,7 +14,7 @@ const checkAuthentication = require('./middleware/checkAuthentication');
 // controller imports
 const authControllers = require('./controllers/authControllers');
 const userControllers = require('./controllers/userControllers');
-// const taskControllers = require('./controllers/taskControllers');
+const taskControllers = require('./controllers/taskControllers');
 const app = express();
 
 // middleware
