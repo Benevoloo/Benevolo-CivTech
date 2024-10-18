@@ -7,12 +7,12 @@ exports.createTasks = async (req, res) => {
   if (!neighbor_id) res.sendStatus(400);
 
   const task = await Task.createTask(
-    title, 
-    body, 
-    zipcode, 
+    title,
+    body,
+    zipcode,
     status,
-    created_at, 
-    expiration_date, 
+    created_at,
+    expiration_date,
     neighbor_id
   );
 

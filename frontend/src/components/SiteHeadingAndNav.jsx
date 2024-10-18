@@ -18,8 +18,8 @@ export default function SiteHeadingAndNav() {
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
             </>
             : <>
-              <li><NavLink to='/login'>Login</NavLink></li>
-              <li><NavLink to='/sign-up'>Sign Up</NavLink></li>
+              <li><NavLink to='/login'>Log In</NavLink></li>
+              <li><NavLink to='/sign-up-header'>Sign Up</NavLink></li>
             </>
         }
       </ul>

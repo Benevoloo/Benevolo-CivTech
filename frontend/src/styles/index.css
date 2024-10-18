@@ -1,6 +1,7 @@
 body {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  margin: 0;
+  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  margin-top: 77px;
+  /* top: 77px; */
 }
 
 input,
@@ -14,27 +15,25 @@ input {
 
 header {
   position: fixed;
+  font-family: 'Holen Vintage', 'Serif';
   top: 0%;
   left: 0%;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0px;
   padding: 0.5rem 1rem;
   background: #15514E;
-}
 
+}
 
 
 #logo {
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: bold;
   text-decoration: none;
-  color: #FFF;
-}
-
-.benevoloIconNav {
-  color: #ECDDC1;
+  color: #F7E9D0;
 }
 
 
@@ -54,7 +53,8 @@ nav ul {
 
 nav a {
   display: block;
-  color: #FFF;
+  color: #F7E9D0;
+  text-decoration: none;
 }
 
 form {
@@ -66,9 +66,9 @@ form {
 
 /* automatically added by NavLink component */
 .active {
-  color: #EEBC32;
+  color: #9AC3A5;
   font-weight: bold;
-  font-style: italic;
+  text-decoration: underline;
 }
 
 /* Home page CSS */
@@ -78,6 +78,11 @@ form {
   padding: 20px;
   text-align: center;
 }
+
+.userHook {
+  font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
+}
+
 
 .whyBenev {
   display: flex;
@@ -116,7 +121,14 @@ img {
   background-color: green;
 }
 
+.paraTitle {
+  font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
+  font-size: 50px;
+}
+
 .para {
+  font-family: "MADE Carving Soft PERSONAL USE Light", sans-serif;
+  font-size: 24px;
   background-color: rebeccapurple;
   margin: 20px;
   padding: 25px;
@@ -127,6 +139,10 @@ img {
 
 .portal {
   width: 500px;
+}
+
+.signUpPage-Header {
+  font-family: 'Holen Vintage', 'Serif';
 }
 
 .signUpButton {
