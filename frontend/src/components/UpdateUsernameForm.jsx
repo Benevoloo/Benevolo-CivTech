@@ -6,7 +6,9 @@ export default function UpdateUsernameForm({ currentUser, setCurrentUser }) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+    console.log(event)
     const [user, error] = await updateUsername(Object.fromEntries(formData));
+    console.log(user)
     // If our user isn't who they say they are
     // (an auth error on update) log them out
     // We added the httpStatus as a custom cause in our error

@@ -24,7 +24,7 @@ export const getUser = async (id) => {
   return fetchHandler(`${baseUrl}/${id}`);
 }
 
-export const updateUsername = async ({ id, username }) => {
-  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username }))
+export const updateUsername = async ({ id, username, name, contact_info, zipcode, bio }) => {
+  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username, name, contact_info, zipcode, bio }))
 }
 
