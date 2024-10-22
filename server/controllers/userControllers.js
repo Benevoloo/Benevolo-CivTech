@@ -56,24 +56,23 @@ exports.updateUser = async (req, res) => {
   // user (users should only be able to change their own profiles)
   if (!isAuthorized(id, req.session)) return res.sendStatus(403);
 
-  const updatedUser = await User.update(username, name, contact_info, zipcode, bio, id);
+  const updatedUser = await User.update(id, username, name, contact_info, zipcode, bio);
   if (!updatedUser) return res.sendStatus(404)
   res.send(updatedUser);
-
+};
 
 //Cloudinary endpoint to handle image uplaods
-const cloudinary = require('../utils/cloudinaryConfig');
-const uploadImage = async (req, res) => {
-  try {
-    const fileStr = req.body.data;
-    const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'ml_default',
-    });
-    res.json({ url: uploadedResponse.secure_url });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Image upload failed' });
-  }
-};
-uploadImage()
-};
+// const cloudinary = require('../utils/cloudinaryConfig');
+// const uploadImage = async (req, res) => {
+//   try {
+//     const fileStr = req.body.data;
+//     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+//       upload_preset: 'ml_default',
+//     });
+//     res.json({ url: uploadedResponse.secure_url });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Image upload failed' });
+//   }
+// };
+// uploadImage()

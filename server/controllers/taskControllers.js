@@ -1,8 +1,7 @@
 const Task = require('../models/Task')
 
 exports.createTasks = async (req, res) => {
-  const { title, body, zipcode, status, created_at, expiration_date } = req.body;
-  const { neighbor_id } = req.params
+  const { title, body, zipcode, status, created_at, expiration_date, neighbor_id } = req.body;
 
   if (!neighbor_id) res.sendStatus(400);
 
@@ -33,6 +32,14 @@ exports.getTaskById = async (req, res) => {
   const task = await Task.getTaskById(id);
 
   res.send(task);
+}
+
+exports.getOwnTasks = async (req, res) => {
+  const { neighbor_id } = req.body
+
+  const tasks = await Task.getOwnTasks(neighbor_id)
+
+  res.send(tasks)
 }
 
 exports.updateTask = async (req, res) => {
