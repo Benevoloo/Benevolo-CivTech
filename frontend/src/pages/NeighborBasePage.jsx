@@ -81,16 +81,21 @@ const NeighborTaskInputCard = () => {
                 <div>
                   <strong className="text-xl">{task.title}</strong>
                   <p className="text-gray-700 mt-2">{task.description}</p>
+                  <div className="flex justify-end">
+                 </div>
                   <p className="text-brown-500 italic mt-2">Expires on: {task.expirationDate}</p>
                 </div>
-                <button onClick={() => handleDelete(index)} className="mt-4 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600">
+                <button onClick={() => handleDelete(index)} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
+                {numOfPeople} people interested
+                </button>
+                <button onClick={() => handleDelete(index)} className="mt-2 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600">
                   Delete Task
                 </button>
+                
               </li>
             ))}
           </ul>
         )}
-        <p className="mt-6">{numOfPeople} people interested</p>
       </div>
     </div>
     
