@@ -91,11 +91,13 @@ class User {
 
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash. 
-  static async update(username, contact_info, zipcode, bio, id) {
+  static async update(username = null, name = null, contact_info = null, zipcode = null, bio = null, id) {
+
     const query = `
-      UPDATE helpers
+      UPDATE users
       SET 
       username = COALESCE (?, username),
+      name = COALESCE (?, name),
       contact_info = COALESCE (?, contact_info),
       zipcode = COALESCE (?, zipcode),
       bio = COALESCE (?, bio)
@@ -103,9 +105,14 @@ class User {
       RETURNING *
     `
     // patch
-    const result = await knex.raw(query, [username, contact_info, zipcode, bio, id])
-    const rawUpdatedUser = result.rows[0];
-    return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+    try {
+      const result = await knex.raw(query, [username, name, contact_info, zipcode, bio, id]);
+      const rawUpdatedUser = result.rows[0];
+      return rawUpdatedUser ? new User(rawUpdatedUser) : null;
+    } catch (error) {
+      console.error('Error updating user:', error);
+      throw new Error('Could not update user.');
+    }
   };
 
   static async deleteAll() {
