@@ -92,6 +92,8 @@ class User {
   // Updates the user that matches the given id with a new username.
   // Returns the modified user, using the constructor to hide the passwordHash. 
   static async update(username = null, name = null, contact_info = null, zipcode = null, bio = null, id) {
+    console.log('Values being passed:', { username, name, contact_info, zipcode, bio, id });
+
 
     const query = `
       UPDATE users
