@@ -15,7 +15,7 @@ import UserPage from './pages/User';
 import NeighborTaskInputCard from './pages/NeighborBasePage';
 import HelperBasePage from './pages/HelperBasePage'
 
-import '../src/styles/index.css'
+import './styles/index.css'
 
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
