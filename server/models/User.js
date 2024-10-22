@@ -77,9 +77,9 @@ class User {
     // hash the plain-text password using bcrypt before storing it in the database
     const passwordHash = await authUtils.hashPassword(password);
 
-    const query = `INSERT INTO users (username, password_hash, contact_info, zipcode, bio, is_neighbor)
-      VALUES (?, ?, ?, ?, ?, ?) RETURNING *`;
-    const result = await knex.raw(query, [username, passwordHash, contact_info, zipcode, bio, is_neighbor]);
+    const query = `INSERT INTO users (username, password_hash, name, contact_info, zipcode, bio, is_neighbor)
+      VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING *`;
+    const result = await knex.raw(query, [username, passwordHash, name, contact_info, zipcode, bio, is_neighbor]);
     const rawUserData = result.rows[0];
     return new User(rawUserData);
   }

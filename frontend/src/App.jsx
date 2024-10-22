@@ -14,6 +14,8 @@ import UsersPage from './pages/Users';
 import UserPage from './pages/User';
 import NeighborTaskInputCard from './pages/NeighborBasePage';
 
+import '../src/styles/index.css'
+
 export default function App() {
   const { setCurrentUser } = useContext(UserContext);
   useEffect(() => {
