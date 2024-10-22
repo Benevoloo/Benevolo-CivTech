@@ -2,5 +2,6 @@ import { fetchHandler, getPostOptions, getPatchOptions} from "../utils/fetchingU
 
 const baseUrl = '/api';
 
-export const checkForInterest = async () => {
+export const checkForInterest = async (task_id) => {
+  return fetchHandler(`${baseUrl}/interests/${task_id}`);
 }

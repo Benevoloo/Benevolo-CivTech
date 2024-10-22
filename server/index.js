@@ -48,7 +48,7 @@ app.get('/api/users', checkAuthentication, userControllers.listUsers); // tested
 app.get('/api/users/by-zip', checkAuthentication, userControllers.listUsersByZip); // tested
 app.get('/api/user/by-username', checkAuthentication, userControllers.findUserByUsername); // tested
 app.get('/api/users/:id', checkAuthentication, userControllers.showUser); // tested
-app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser); //
+app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser); // tested
 
 
 
@@ -72,7 +72,9 @@ app.delete('/api/task/:id', taskControllers.deleteTask) // tested
 ///////////////////////////////
 
 
-app.get('/api/interests')
+app.get('/api/interests/:task_id', interestControllers.getInterests) // tested
+app.post('/api/interests', interestControllers.createInterest) // tested
+app.delete('/api/interests', interestControllers.deleteAllInterest) //tested
 
 
 ///////////////////////////////
