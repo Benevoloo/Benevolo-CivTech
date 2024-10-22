@@ -13,6 +13,7 @@ exports.createUser = async (req, res) => {
 
 exports.listUsers = async (req, res) => {
   const users = await User.list();
+  console.log(users)
   res.send(users);
 };
 
@@ -23,12 +24,12 @@ exports.listUsersByZip = async (req, res) => {
   res.send(users);
 };
 
-exports.findUserById = async (req, res) => {
-  const { id } = req.params
+// exports.findUserById = async (req, res) => {
+//   const { id } = req.params
 
-  const user = await User.find(id)
-  res.send(user)
-}
+//   const user = await User.find(id)
+//   res.send(user)
+// }
 
 exports.findUserByUsername = async (req, res) => {
   const { username } = req.body

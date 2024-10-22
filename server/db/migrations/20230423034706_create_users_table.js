@@ -7,6 +7,7 @@ exports.up = (knex) => {
     table.increments();
     table.string('username').notNullable().unique();
     table.string('password_hash').notNullable();
+    table.string('name').notNullable();
     table.string('contact_info');
     table.integer('zipcode').notNullable();
     table.string('bio');

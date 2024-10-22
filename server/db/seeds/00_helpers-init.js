@@ -16,33 +16,37 @@ exports.seed = async function(knex) {
   await User.create(
     'cool_cat', 
     '1234',
+    'Chris J',
     null,
     10705,
-    'Hey my name is Chris and I like Oreos.',
+    'Hey I like Oreos.',
     true
   );
   await User.create(
     'l33t-guy', 
     '1234',
+    'Fiona',
     null,
     10705,
-    'Hey my name is Leet and I like Reeses',
+    'Hey I like Reeses.',
     false
   );
   await User.create(
     'wowow', 
     '1234',
+    'Alex',
     null,
     11232,
-    'Hey my name is Wow and I like Snickers',
+    'Hey I like Snickers',
     false
   );
   await User.create(
     'jahlapeno',
     '1234',
+    'Bugs',
     null,
     11232,
-    'Hey my name is Jah and I like Ramen',
+    'Hey I like Ramen',
     true
   )
 

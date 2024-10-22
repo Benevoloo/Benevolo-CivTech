@@ -5,10 +5,9 @@ import { fetchHandler, getPostOptions, getPatchOptions } from "../utils/fetching
 const baseUrl = '/api/users';
 
 //posting all information from the sign up form into the user model to create a new user - Alex
-export const createUser = async ({ name, username, password, zipcode, email, phoneNumber, userType }) => {
-  return fetchHandler(baseUrl, getPostOptions({ name, username, password, zipcode, email, phoneNumber, userType }))
+export const createUser = async ({ username, password, name, contact_info, zipcode, bio, is_neighbor }) => {
+  return fetchHandler(baseUrl, getPostOptions({ username, password, name, contact_info, zipcode, bio, is_neighbor }))
 };
-
 
 
 // For this one adapter, if an error occurs, we handle it here by printing

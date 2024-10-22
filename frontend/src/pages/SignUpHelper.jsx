@@ -15,15 +15,13 @@ export default function SignUpHelper() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [zipcode, setZipcode] = useState('');
-  //email or number for contacting 
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
+  const [contact_info, setContactInfo] = useState('');
   //bio
   const [bio, setBio] = useState('');
 
   //kind of user (is neigbor? is helper?)
 
-  const [userTypeIsNeighbor] = useState(false)
+  const is_neighbor = false
 
 
 
@@ -39,7 +37,7 @@ export default function SignUpHelper() {
 
     if (!username || !password) return setErrorText('Missing username or password');
 
-    const [user, error] = await createUser({ name, username, password, zipcode, email, phoneNumber, bio, userTypeIsNeighbor });
+    const [user, error] = await createUser({ username, password, name, zipcode, contact_info, bio, is_neighbor });
     if (error) return setErrorText(error.message);
 
     console.log(errorText)
@@ -49,7 +47,7 @@ export default function SignUpHelper() {
     //set the values of the inputs back to empty
 
 
-    navigate('/neighbor');
+    navigate('/helper');
   };
 
   const handleChange = (event) => {
@@ -58,8 +56,7 @@ export default function SignUpHelper() {
     if (name === 'username') setUsername(value);
     if (name === 'password') setPassword(value);
     if (name === 'zipcode') setZipcode(value);
-    if (name === 'email') setEmail(value);
-    if (name === 'phoneNumber') setPhoneNumber(value);
+    if (name === 'contact-info') setContactInfo(value);
     if (name === 'bio') setBio(value);
 
   };
@@ -127,24 +124,14 @@ export default function SignUpHelper() {
         maxLength="5"
       />
 
-      <label htmlFor="setting-email">Email</label>
+      <label htmlFor="setting-contact-info">Contact Info</label>
       <input
         autoComplete="on"
         type="text"
-        id="setting-email"
-        name="email"
+        id="setting-contact-info"
+        name="contact-info"
         onChange={handleChange}
-        value={email}
-      />
-
-      <label htmlFor="setting-phone-number">Phone Number</label>
-      <input
-        autoComplete="on"
-        type="text"
-        id="setting-phone-number"
-        name="phoneNumber"
-        onChange={handleChange}
-        value={phoneNumber}
+        value={contact_info}
       />
 
       <label htmlFor="creating-bio">Tell Us About Yourself</label>
@@ -166,7 +153,7 @@ export default function SignUpHelper() {
         <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
       */}
 
-      <button>Sign Up Now!</button> <Link to='/neighbor'></Link>
+      <button>Sign Up Now!</button> <Link to='/helper'></Link>
     </form>
     {!!errorText && <p>{errorText}</p>}
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
