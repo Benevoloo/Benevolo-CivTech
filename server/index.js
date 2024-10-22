@@ -72,7 +72,7 @@ app.delete('/api/task/:id', taskControllers.deleteTask) // tested
 ///////////////////////////////
 
 
-app.get('/api/interests')
+app.get('/api/interests/:task_id', interestControllers.getInterests)
 
 
 ///////////////////////////////

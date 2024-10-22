@@ -8,7 +8,7 @@ exports.createInterest = async (req, res) => {
 }
 
 exports.getInterests = async (req, res) => {
-  const { task_id } = req.body
+  const { task_id } = req.params
   const interests = await Interest.getInterests(task_id)
 
   res.send(interests)
