@@ -7,6 +7,13 @@ exports.createInterest = async (req, res) => {
   res.send(interest)
 }
 
+exports.getInterests = async (req, res) => {
+  const { task_id } = req.body
+  const interests = await Interest.getInterests(task_id)
+
+  res.send(interests)
+}
+
 exports.deleteAllInterest = async (req, res) => {
   const { task_id } = req.body
   const deletedInterests = await Interest.deleteAllInterestsToTask(task_id)
