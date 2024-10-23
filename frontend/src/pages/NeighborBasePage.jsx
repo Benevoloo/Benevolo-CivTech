@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { makeTask } from "../adapters/task-adapter";
-import '../styles/index.css';
+// import '../styles/index.css';
+import Modal from "../components/Modal";
 
 const NeighborTaskInputCard = () => {
   const [title, setTitle] = useState('');
@@ -8,29 +9,51 @@ const NeighborTaskInputCard = () => {
   const [expirationDate, setExpirationDate] = useState('');
   const [submittedTasks, setSubmittedTasks] = useState([]);
   const [numOfPeople, setnumOfPeople] = useState(0);
+  const [modalTask, setModalTask] = useState(null);
 
-  const zipcode = 10705
 
   // Function to handle the submission of a new task
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const newTask1 = { title: title, body: bio, status: "waiting", created_at: "nfeuin", expiration_date: expirationDate, neighbor_id: 1 };
+  //   const newTask2 = { title: title, body, expirationDate };
+  //   const {status, created_at, expiration_date, neighbor_id} = newTask1
+  //   setSubmittedTasks([...submittedTasks, newTask2]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask1 = { title: title, bio: bio, status: "waiting", created_at: "nfeuin", expiration_date: expirationDate, neighbor_id: 1 };
-    const newTask2 = { title: title, bio, expirationDate };
-    const {status, created_at, expiration_date, neighbor_id} = newTask1
-    setSubmittedTasks([...submittedTasks, newTask2]);
+    const newTask = {
+      title: title,
+      bio,
+      expirationDate,
+      numOfPeople: 0, // Initial value for interested helpers
+      interestedHelpers: [], // Keeps track of the people interested in this task
+    };
+    setSubmittedTasks([...submittedTasks, newTask]);
 
-    makeTask(title, bio, zipcode, status, created_at, expiration_date, neighbor_id)
+
+    makeTask(title, body, zipcode, created_at, expiration_date, neighbor_id)
 
     setTitle('')
     setBio('');
     setExpirationDate('');
   };
 
+
+  const handleTaskInterest = () => {
+    const task = submittedTasks[index]
+    setModalTask(task)
+  }
+
   // Function to handle deleting a task from the list
   const handleDelete = (index) => {
     const updatedTasks = submittedTasks.filter((_, i) => i !== index);
     setSubmittedTasks(updatedTasks);
   };
+
+  const closeModal = () => {
+    setModalTask(null)
+  }
 
   // const handleTaskInterest = () => {
   //   const interestTask = 
@@ -39,7 +62,7 @@ const NeighborTaskInputCard = () => {
   return (
     <div className="flex justify-between p-6 bg-green-100 min-h-screen">
       {/* left side - task submission form */}
-      <div className="w-1/2 p-3">
+      <div className="w-1/2 p-4">
         <h2 className="text-2xl font-bold mb-4">Post a Task</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
@@ -75,7 +98,7 @@ const NeighborTaskInputCard = () => {
           </div>
 
           <button type="submit" className="w-full p-3 bg-blue-500 text-white font-bold rounded-lg hover:bg-blue-600">
-            Submit Task
+            Post Task
           </button>
         </form>
       </div>
@@ -94,11 +117,15 @@ const NeighborTaskInputCard = () => {
                   <p className="text-gray-700 mt-2">{task.bio}</p>
                   <div className="flex justify-end">
                  </div>
-                  <p className="text-brown-500 italic mt-2">Expires on: {task.expirationDate}</p>
+                  <p className="text-sky-500 italic mt-2">Expires on: {task.expiration_date}</p>
                 </div>
                 <button onClick={() => handleTaskInterest(index)} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
                 {numOfPeople} helpers interested
                 </button>
+                  {/* <button onClick={() => handleTaskInterest(index)} className="w-36 bg-orange-600 text-white rounded-lg hover:bg-orange-700">
+                    {numOfPeople} helpers interested
+                  </button> */}
+
                 <button onClick={() => handleDelete(index)} className="mt-2 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600">
                   Delete Task
                 </button>
@@ -108,6 +135,10 @@ const NeighborTaskInputCard = () => {
           </ul>
         )}
       </div>
+       {/* Modal Component */}
+      {modalTask && (
+        <Modal closeModal={closeModal} task={modalTask} />
+      )}
     </div>
     
   );
