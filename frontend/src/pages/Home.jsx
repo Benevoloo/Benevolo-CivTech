@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import Sign up button
 import SignUpOptions from "../components/SignUpOptions";
+
 export default function HomePage() {
 
 
