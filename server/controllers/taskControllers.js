@@ -35,7 +35,7 @@ exports.getTaskById = async (req, res) => {
 }
 
 exports.getOwnTasks = async (req, res) => {
-  const { neighbor_id } = req.body
+  const { neighbor_id } = req.params
 
   const tasks = await Task.getOwnTasks(neighbor_id)
 

@@ -45,7 +45,7 @@ app.post('/api/users', userControllers.createUser);
 // These actions require users to be logged in (authentication)
 // Express lets us pass a piece of middleware to run for a specific endpoint
 app.get('/api/users', checkAuthentication, userControllers.listUsers); // tested
-app.get('/api/users/by-zip', checkAuthentication, userControllers.listUsersByZip); // tested
+app.get('/api/users/by-zip/:zipcode', checkAuthentication, userControllers.listUsersByZip); // tested
 app.get('/api/user/by-username', checkAuthentication, userControllers.findUserByUsername); // tested
 app.get('/api/users/:id', checkAuthentication, userControllers.showUser); // tested
 app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser); // tested
@@ -59,7 +59,7 @@ app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser); //
 
 app.get('/api/tasks/by-zipcode/:zipcode', taskControllers.listByZipcode) // tested
 app.get('/api/task/:id', taskControllers.getTaskById) // tested
-app.get('/api/own-task', taskControllers.getOwnTasks) // tested
+app.get('/api/own-task/:neighbor_id', taskControllers.getOwnTasks) // tested
 app.post('/api/tasks', taskControllers.createTasks) // tested
 app.patch('/api/task/:id', taskControllers.updateTask) // tested
 app.delete('/api/task/:id', taskControllers.deleteTask) // tested
@@ -74,7 +74,7 @@ app.delete('/api/task/:id', taskControllers.deleteTask) // tested
 
 app.get('/api/interests/:task_id', interestControllers.getInterests) // tested
 app.post('/api/interests', interestControllers.createInterest) // tested
-app.delete('/api/interests', interestControllers.deleteAllInterest) //tested
+app.delete('/api/interests/:task_id', interestControllers.deleteAllInterest) //tested
 
 
 ///////////////////////////////

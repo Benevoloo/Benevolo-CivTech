@@ -18,7 +18,7 @@ exports.listUsers = async (req, res) => {
 };
 
 exports.listUsersByZip = async (req, res) => {
-  const { zipcode } = req.body;
+  const { zipcode } = req.params;
   
   const users = await User.listUsersByZip(zipcode);
   res.send(users);

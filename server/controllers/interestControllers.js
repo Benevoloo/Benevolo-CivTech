@@ -15,7 +15,7 @@ exports.getInterests = async (req, res) => {
 }
 
 exports.deleteAllInterest = async (req, res) => {
-  const { task_id } = req.body
+  const { task_id } = req.params
   const deletedInterests = await Interest.deleteAllInterestsToTask(task_id)
 
   res.send(deletedInterests)
