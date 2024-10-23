@@ -32,7 +32,7 @@ const NeighborTaskInputCard = () => {
     setSubmittedTasks([...submittedTasks, newTask]);
 
 
-    makeTask(title, body, zipcode, created_at, expiration_date, neighbor_id)
+    makeTask(title, bio, zipcode, created_at, expiration_date, neighbor_id)
 
     setTitle('')
     setBio('');
