@@ -3,7 +3,13 @@ const User = require('../models/User');
 
 exports.createUser = async (req, res) => {
   const { username, password, name, contact_info, zipcode, bio, is_neighbor } = req.body;
-
+  console.log(username)
+  console.log(password)
+  console.log(name)
+  console.log(contact_info)
+  console.log(zipcode)
+  console.log(bio)
+  console.log(is_neighbor)
   // TODO: check if username is taken, and if it is what should you return?
   const user = await User.create(username, password, name, contact_info, zipcode, bio, is_neighbor);
   req.session.userId = user.id;
@@ -19,7 +25,7 @@ exports.listUsers = async (req, res) => {
 
 exports.listUsersByZip = async (req, res) => {
   const { zipcode } = req.body;
-  
+
   const users = await User.listUsersByZip(zipcode);
   res.send(users);
 };
@@ -61,19 +67,19 @@ exports.updateUser = async (req, res) => {
   res.send(updatedUser);
 
 
-//Cloudinary endpoint to handle image uplaods
-const cloudinary = require('../utils/cloudinaryConfig');
-const uploadImage = async (req, res) => {
-  try {
-    const fileStr = req.body.data;
-    const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-      upload_preset: 'ml_default',
-    });
-    res.json({ url: uploadedResponse.secure_url });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Image upload failed' });
-  }
-};
-uploadImage()
+  //Cloudinary endpoint to handle image uplaods
+  const cloudinary = require('../utils/cloudinaryConfig');
+  const uploadImage = async (req, res) => {
+    try {
+      const fileStr = req.body.data;
+      const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+        upload_preset: 'ml_default',
+      });
+      res.json({ url: uploadedResponse.secure_url });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Image upload failed' });
+    }
+  };
+  uploadImage()
 };

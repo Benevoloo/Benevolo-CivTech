@@ -33,7 +33,7 @@ header {
   font-size: 3rem;
   font-weight: bold;
   text-decoration: none;
-  color: #F7E9D0;
+  color: #F7F5D0;
 }
 
 
@@ -53,7 +53,7 @@ nav ul {
 
 nav a {
   display: block;
-  color: #F7E9D0;
+  color: #F7F5D0;
   text-decoration: none;
 }
 
@@ -186,4 +186,36 @@ footer {
   text-align: left;
   width: 250px;
 
+}
+
+#photoHere {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: brown;
+}
+
+#helperBody {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+#taskFeed {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 25px;
+}
+
+#taskContainer {
+  display: flex;
+  flex-flow: column wrap;
+  padding: 20px;
+  background-color: #F7F5D0;
+  border: 5px;
+  border-radius: 20px;
+  border-color: #000;
 }

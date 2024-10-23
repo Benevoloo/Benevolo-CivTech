@@ -19,10 +19,11 @@ exports.createTasks = async (req, res) => {
   res.send(task);
 };
 
+
 exports.listByZipcode = async (req, res) => {
   const { zipcode } = req.params;
 
-  const tasks = await Task.listByZipcode(zipcode);
+  const tasks = await Task.listByZipcode(Number(zipcode));
 
   res.send(tasks);
 }

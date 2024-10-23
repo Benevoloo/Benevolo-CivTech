@@ -5,22 +5,22 @@ import '../styles/index.css'
 
 
 const NeighborTaskInputCard = () => {
-const [taskTitle, setTaskTitle] = useState('')
-const [description, setDescription] = useState('');
-const [expirationDate, setExpirationDate] = useState('');
-const [submittedTasks, setSubmittedTasks] = useState([]);
+  const [taskTitle, setTaskTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [expirationDate, setExpirationDate] = useState('');
+  const [submittedTasks, setSubmittedTasks] = useState([]);
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newTask = { title: taskTitle, description, expirationDate}
-setSubmittedTasks([...submittedTasks, newTask])
+    const newTask = { title: taskTitle, description, expirationDate }
+    setSubmittedTasks([...submittedTasks, newTask])
 
-setTaskTitle('')
-setDescription('')
-setExpirationDate('')
-}
+    setTaskTitle('')
+    setDescription('')
+    setExpirationDate('')
+  }
 
-return ( <>
+  return (<>
     <div style={{ display: 'flex', justifyContent: 'space-between', padding: '20px' }}>
       {/* Left Side - Task Submission Form */}
       <div style={{ width: '40%', paddingRight: '20px' }}>
@@ -80,6 +80,6 @@ return ( <>
       </div>
     </div>
 
-    </>);
+  </>);
 };
 export default NeighborTaskInputCard;

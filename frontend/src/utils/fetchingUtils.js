@@ -34,7 +34,7 @@ export const fetchHandler = async (url, options = {}) => {
 
     return [responseData, null];
   } catch (error) {
-    console.warn(error);
+    console.log(error);
     return [null, error];
   }
 };
