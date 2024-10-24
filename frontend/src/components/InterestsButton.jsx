@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { checkForInterest } from "../adapters/task-adapter";
 
 const InterestsButton = ({task_id}) => {

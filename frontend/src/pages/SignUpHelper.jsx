@@ -47,7 +47,7 @@ export default function SignUpHelper() {
     //set the values of the inputs back to empty
 
 
-    navigate('/helper');
+    navigate(`/users/${user.id}/helper`);
   };
 
   const handleChange = (event) => {
@@ -153,7 +153,7 @@ export default function SignUpHelper() {
         <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
       */}
 
-      <button>Sign Up Now!</button> <Link to='/helper'></Link>
+      <button>Sign Up Now!</button>
     </form>
     {!!errorText && <p>{errorText}</p>}
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
