@@ -34,9 +34,9 @@ export default function App() {
         <Route path='/sign-up-neighbor' element={<SignUpNeighbor />} />
         <Route path='/users' element={<UsersPage />} />
         <Route path='/users/:id' element={<UserPage />} />
+        <Route path='/users/:id/neighbor' element={<NeighborTaskInputCard />} />
+        <Route path='/users/:id/helper' element={<HelperBasePage />} />
         <Route path='*' element={<NotFoundPage />} />
-        <Route path='/neighbor' element={<NeighborTaskInputCard/>} />
-        <Route path='/helper' element={<HelperBasePage/>} />
       </Routes>
     </main>
   </>;

@@ -142,6 +142,7 @@ const NeighborTaskInputCard = () => {
     </div>
     
   );
+
 };
 
 export default NeighborTaskInputCard;
