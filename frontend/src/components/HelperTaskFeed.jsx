@@ -7,7 +7,7 @@ import { fetchHandler } from "../utils/fetchingUtils";
 import { getUser } from "../adapters/user-adapter";
 import { checkForLoggedInUser } from "../adapters/auth-adapter";
 
-
+import HelperTask from "./HelperTaskTicket";
 
 const HelperTaskFeed = () => {
     const { currentUser } = useContext(CurrentUserContext);
@@ -64,15 +64,16 @@ const HelperTaskFeed = () => {
                 <p>No tasks available for your zipcode.</p>
             ) : (
                 <ul>
-                    {tasks.map(task => (
-                        <li key={task.id}>
-                            <h4>{task.title}</h4>
-                            <p>{task.body}</p>
-                            <p>Posted on: {task.created_at}</p>
-                            <p>Due by: {task.expiration_date}</p>
-                        </li>
-                    ))}
-                </ul>
+                {tasks.map(task => (
+                    <HelperTask key={task.id}
+                        task_id={task.id}
+                        title={task.title}
+                        body={task.body}
+                        created_at={task.created_at}
+                        expires_at={task.expiration_date}
+                    />
+                ))}
+            </ul>
             )}
         </div>
     );
