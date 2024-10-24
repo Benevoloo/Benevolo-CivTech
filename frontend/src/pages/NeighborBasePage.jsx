@@ -7,10 +7,6 @@ import NeighborTasks from "../components/NeighborTask";
 // import '../styles/index.css';
 import Modal from "../components/Modal";
 
-const me = await checkForLoggedInUser()
-const neighbor_id = me.id
-const zipcode = me.zipcode
-
 const NeighborTaskInputCard = () => {
   const [submittedTasks, setSubmittedTasks] = useState([]);
   const [title, setTitle] = useState('');
@@ -28,7 +24,9 @@ const NeighborTaskInputCard = () => {
 
   
 
-  const yourTasks = async (neighbor_id) => {
+  const yourTasks = async () => {
+    const me = await checkForLoggedInUser()
+    const neighbor_id = me.id
     const [data, error] = await getOwnTasks(neighbor_id);
     if (error) {
       console.error('Error fetching tasks:', error);
@@ -41,7 +39,7 @@ const NeighborTaskInputCard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        let neighborTasks = await yourTasks(neighbor_id);
+        let neighborTasks = await yourTasks();
           setSubmittedTasks(neighborTasks);
       } catch (error) {
         console.error('Error fetching tasks on load:', error);
@@ -55,6 +53,8 @@ const NeighborTaskInputCard = () => {
   // Function to handle the submission of a new task
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const me = await checkForLoggedInUser()
+    const zipcode = me.zipcode
 
     makeTask(title, body, zipcode, "waiting", expiration_date, neighbor_id)
 

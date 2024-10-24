@@ -20,7 +20,7 @@ export default function LoginPage() {
     const [user, error] = await logUserIn(Object.fromEntries(formData));
     if (error) return setErrorText(error.message);
     setCurrentUser(user);
-    user.is_neighbor ? navigate('/neighbor'): navigate(`/users/${user.id}/helper`); // if is_neighbor is true then it will navigate to the neighbor side
+    user.is_neighbor ? navigate(`/users/${user.id}/neighbor`): navigate(`/users/${user.id}/helper`); // if is_neighbor is true then it will navigate to the neighbor side
   };
 
   return <>
