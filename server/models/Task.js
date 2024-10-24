@@ -36,9 +36,10 @@ class Task {
     return rows[0]
   };
 
-  static async createTask(title, body, zipcode, status = "waiting", created_at, expiration_date, neighbor_id) {
-    const query = `INSERT INTO tasks (title, body, zipcode, status, created_at, expiration_date, neighbor_id) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING *`
-    const { rows } = await knex.raw(query, [title, body, zipcode, status, created_at, expiration_date, neighbor_id])
+  static async createTask(title, body, zipcode, status = "waiting", expiration_date, neighbor_id) {
+    console.log(title, body, zipcode, status, expiration_date, neighbor_id)
+    const query = `INSERT INTO tasks (title, body, zipcode, status, expiration_date, neighbor_id) VALUES (?, ?, ?, ?, ?, ?) RETURNING *`
+    const { rows } = await knex.raw(query, [title, body, zipcode, status, expiration_date, neighbor_id])
     return rows[0];
   }
 

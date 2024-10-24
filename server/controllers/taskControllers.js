@@ -1,7 +1,7 @@
 const Task = require('../models/Task')
 
 exports.createTasks = async (req, res) => {
-  const { title, body, zipcode, status, created_at, expiration_date, neighbor_id } = req.body;
+  const { title, body, zipcode, status, expiration_date, neighbor_id } = req.body;
 
   if (!neighbor_id) res.sendStatus(400);
 
@@ -10,7 +10,6 @@ exports.createTasks = async (req, res) => {
     body,
     zipcode,
     status,
-    created_at,
     expiration_date,
     neighbor_id
   );

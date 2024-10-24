@@ -1,55 +1,79 @@
-import React, { useState } from "react";
-import { makeTask } from "../adapters/task-adapter";
+import React, { useEffect, useState, useContext } from "react";
+import { makeTask, getOwnTasks, checkForInterest } from "../adapters/task-adapter";
+import { checkForLoggedInUser } from "../adapters/auth-adapter";
+import CurrentUserContext from "../contexts/current-user-context";
+import NeighborTasks from "../components/NeighborTask";
+
 // import '../styles/index.css';
 import Modal from "../components/Modal";
 
+const me = await checkForLoggedInUser()
+const neighbor_id = me.id
+const zipcode = me.zipcode
+
 const NeighborTaskInputCard = () => {
-  const [title, setTitle] = useState('');
-  const [bio, setBio] = useState('');
-  const [expirationDate, setExpirationDate] = useState('');
   const [submittedTasks, setSubmittedTasks] = useState([]);
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
+  const [expiration_date, setExpiration_date] = useState('');
   const [numOfPeople, setnumOfPeople] = useState(0);
   const [modalTask, setModalTask] = useState(null);
+  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
 
+  // console.log(currentUser.id)
+
+  // const { id } = currentUser
+
+  // console.log(id)
+
+  
+
+  const yourTasks = async (neighbor_id) => {
+    const [data, error] = await getOwnTasks(neighbor_id);
+    if (error) {
+      console.error('Error fetching tasks:', error);
+    } else {
+      console.log('Your tasks:', data);
+      return data
+    }
+  };
+
+  useEffect(() => {
+    const fetchTasks = async () => {
+      try {
+        let neighborTasks = await yourTasks(neighbor_id);
+          setSubmittedTasks(neighborTasks);
+      } catch (error) {
+        console.error('Error fetching tasks on load:', error);
+      }
+    };
+
+    fetchTasks();
+  }, [currentUser]); 
+  
 
   // Function to handle the submission of a new task
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const newTask1 = { title: title, body: bio, status: "waiting", created_at: "nfeuin", expiration_date: expirationDate, neighbor_id: 1 };
-  //   const newTask2 = { title: title, body, expirationDate };
-  //   const {status, created_at, expiration_date, neighbor_id} = newTask1
-  //   setSubmittedTasks([...submittedTasks, newTask2]);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newTask = {
-      title: title,
-      bio,
-      expirationDate,
-      numOfPeople: 0, // Initial value for interested helpers
-      interestedHelpers: [], // Keeps track of the people interested in this task
-    };
-    setSubmittedTasks([...submittedTasks, newTask]);
 
+    makeTask(title, body, zipcode, "waiting", expiration_date, neighbor_id)
 
-    makeTask(title, body, zipcode, created_at, expiration_date, neighbor_id)
+    setTitle('');
+    setBody('');
+    setExpiration_date('');
 
-    setTitle('')
-    setBio('');
-    setExpirationDate('');
+    let neighborTasks = await yourTasks(neighbor_id)
+
+    setSubmittedTasks(neighborTasks)
+
+    console.log(currentUser)
+    
   };
 
 
   const handleTaskInterest = () => {
-    const task = submittedTasks[index]
-    setModalTask(task)
+    
   }
-
-  // Function to handle deleting a task from the list
-  const handleDelete = (index) => {
-    const updatedTasks = submittedTasks.filter((_, i) => i !== index);
-    setSubmittedTasks(updatedTasks);
-  };
 
   const closeModal = () => {
     setModalTask(null)
@@ -79,8 +103,8 @@ const NeighborTaskInputCard = () => {
           <div>
             <label className="block text-lg font-medium mb-1">Description:</label>
             <textarea
-              value={bio}
-              onChange={(e) => setBio(e.target.value)}
+              value={body}
+              onChange={(e) => setBody(e.target.value)}
               required
               className="w-full p-3 border border-gray-300 rounded-lg"
             />
@@ -90,8 +114,8 @@ const NeighborTaskInputCard = () => {
             <label className="block text-lg font-medium mb-1">Expiration Date:</label>
             <input
               type="date"
-              value={expirationDate}
-              onChange={(e) => setExpirationDate(e.target.value)}
+              value={expiration_date}
+              onChange={(e) => setExpiration_date(e.target.value)}
               required
               className="w-full p-3 border border-gray-300 rounded-lg"
             />
@@ -106,7 +130,8 @@ const NeighborTaskInputCard = () => {
       {/* Right Side showing the submitted tasks list */}
       <div className="w-1/2 pl-6 border-l border-gray-300">
         <h2 className="text-2xl font-bold mb-4">Your Submitted Tasks</h2>
-        {submittedTasks.length === 0 ? (
+        <NeighborTasks submittedTasks={submittedTasks} setSubmittedTasks={setSubmittedTasks}/>
+        {/*{submittedTasks.length === 0 ? (
           <h3 className="text-green-950">No tasks submitted yet.</h3>
         ) : (
           <ul className="space-y-6">
@@ -114,7 +139,7 @@ const NeighborTaskInputCard = () => {
               <li key={index} className="p-4 bg-gray-100 rounded-lg shadow-md">
                 <div>
                   <strong className="text-xl">{task.title}</strong>
-                  <p className="text-gray-700 mt-2">{task.bio}</p>
+                  <p className="text-gray-700 mt-2">{task.body}</p>
                   <div className="flex justify-end">
                  </div>
                   <p className="text-sky-500 italic mt-2">Expires on: {task.expiration_date}</p>
@@ -122,9 +147,6 @@ const NeighborTaskInputCard = () => {
                 <button onClick={() => handleTaskInterest(index)} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
                 {numOfPeople} helpers interested
                 </button>
-                  {/* <button onClick={() => handleTaskInterest(index)} className="w-36 bg-orange-600 text-white rounded-lg hover:bg-orange-700">
-                    {numOfPeople} helpers interested
-                  </button> */}
 
                 <button onClick={() => handleDelete(index)} className="mt-2 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600">
                   Delete Task
@@ -133,7 +155,7 @@ const NeighborTaskInputCard = () => {
               </li>
             ))}
           </ul>
-        )}
+        )}*/}
       </div>
        {/* Modal Component */}
       {modalTask && (
