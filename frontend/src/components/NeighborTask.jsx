@@ -8,14 +8,16 @@ const NeighborTasks = ({submittedTasks , setSubmittedTasks}) => {
     setSubmittedTasks(updatedTasks);
   };
 
+
+
   return (
     <>
         {submittedTasks.length === 0 ? (
           <h3 className="text-green-950">No tasks submitted yet.</h3>
         ) : (
           <ul className="space-y-6">
-            {submittedTasks.map((task, index) => (
-              <li key={index} className="p-4 bg-gray-100 rounded-lg shadow-md">
+            {submittedTasks?.map((task, index) => (
+              <li key={index} task_id={task.id} className="p-4 bg-gray-100 rounded-lg shadow-md">
                 <div>
                   <strong className="text-xl">{task.title}</strong>
                   <p className="text-gray-700 mt-2">{task.body}</p>
@@ -23,7 +25,7 @@ const NeighborTasks = ({submittedTasks , setSubmittedTasks}) => {
                  </div>
                   <p className="text-sky-500 italic mt-2">Expires on: {task.expiration_date}</p>
                 </div>
-                <InterestsButton/>
+                <InterestsButton task_id={task.id}/>
                 <button onClick={() => handleDelete(index)} className="mt-2 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600">
                   Delete Task
                 </button>

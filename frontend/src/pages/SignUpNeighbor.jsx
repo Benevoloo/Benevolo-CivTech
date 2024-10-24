@@ -50,7 +50,7 @@ export default function SignUpNeighbor() {
     //set the values of the inputs back to empty
 
 
-    navigate('/neighbor');
+    navigate(`/users/${user.id}/neighbor`);
   };
 
   const handleChange = (event) => {
@@ -156,7 +156,7 @@ export default function SignUpNeighbor() {
         <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
       */}
 
-      <button>Sign Up Now!</button> <Link to='/neighbor'></Link>
+      <button>Sign Up Now!</button>
     </form>
     {!!errorText && <p>{errorText}</p>}
     <p>Already have an account with us? <Link to="/login">Log in!</Link></p>

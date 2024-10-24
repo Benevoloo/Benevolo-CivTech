@@ -7,10 +7,6 @@ import NeighborTasks from "../components/NeighborTask";
 // import '../styles/index.css';
 import Modal from "../components/Modal";
 
-const me = await checkForLoggedInUser()
-const neighbor_id = me.id
-const zipcode = me.zipcode
-
 const NeighborTaskInputCard = () => {
   const [submittedTasks, setSubmittedTasks] = useState([]);
   const [title, setTitle] = useState('');
@@ -18,7 +14,10 @@ const NeighborTaskInputCard = () => {
   const [expiration_date, setExpiration_date] = useState('');
   const [numOfPeople, setnumOfPeople] = useState(0);
   const [modalTask, setModalTask] = useState(null);
+  const [neighborId, setNeighborId] = useState()
+  const [zipcode, setZipcode] = useState();
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+
 
   // console.log(currentUser.id)
 
@@ -26,10 +25,20 @@ const NeighborTaskInputCard = () => {
 
   // console.log(id)
 
+  useEffect(() => {
+    const doFetch = async () => {
+      const me = await checkForLoggedInUser()
+      if(me){
+        setNeighborId(me.id);
+        setZipcode(me.zipcode)
+      }
+    }
+    doFetch();
+  },[])
   
 
-  const yourTasks = async (neighbor_id) => {
-    const [data, error] = await getOwnTasks(neighbor_id);
+  const yourTasks = async (neighborId) => {
+    const [data, error] = await getOwnTasks(neighborId);
     if (error) {
       console.error('Error fetching tasks:', error);
     } else {
@@ -41,28 +50,32 @@ const NeighborTaskInputCard = () => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        let neighborTasks = await yourTasks(neighbor_id);
+        if(neighborId){
+          let neighborTasks = await yourTasks(neighborId);
           setSubmittedTasks(neighborTasks);
+        } else(
+          console.warn('No neighbor Id')
+        )
       } catch (error) {
         console.error('Error fetching tasks on load:', error);
       }
     };
 
     fetchTasks();
-  }, [currentUser]); 
+  }, [currentUser, neighborId]); 
   
 
   // Function to handle the submission of a new task
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    makeTask(title, body, zipcode, "waiting", expiration_date, neighbor_id)
+    makeTask(title, body, zipcode, "waiting", expiration_date, neighborId)
 
     setTitle('');
     setBody('');
     setExpiration_date('');
 
-    let neighborTasks = await yourTasks(neighbor_id)
+    let neighborTasks = await yourTasks(neighborId)
 
     setSubmittedTasks(neighborTasks)
 
