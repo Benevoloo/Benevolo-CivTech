@@ -84,9 +84,9 @@ const NeighborTaskInputCard = () => {
   };
 
 
-  const handleTaskInterest = () => {
+  // const handleTaskInterest = () => {
     
-  }
+  // }
 
   const closeModal = () => {
     setModalTask(null)
