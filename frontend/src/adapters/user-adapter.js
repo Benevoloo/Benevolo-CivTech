@@ -29,13 +29,16 @@ export const getAllUsers = async () => {
   return users || [];
 };
 
+export const getUsersByZip = async (zipcode) => {
+  const [users, error] = await fetchHandler(`${baseUrl}/by-zip/${zipcode}`)
+  if (error) console.log(error)
+  return users || [];
+}
+
 export const getUser = async (id) => {
   return fetchHandler(`${baseUrl}/${id}`);
 }
 
-export const updateUsername = async ({ id, username }) => {
-  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username }))
+export const updateUsername = async ({ id, username, name, contact_info, zipcode, bio }) => {
+  return fetchHandler(`${baseUrl}/${id}`, getPatchOptions({ id, username, name, contact_info, zipcode, bio }))
 }
-
-
-

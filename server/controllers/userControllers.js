@@ -24,7 +24,9 @@ exports.listUsers = async (req, res) => {
 };
 
 exports.listUsersByZip = async (req, res) => {
-  const { zipcode } = req.body;
+
+  const { zipcode } = req.params;
+  
 
   const users = await User.listUsersByZip(zipcode);
   res.send(users);
@@ -54,32 +56,31 @@ exports.showUser = async (req, res) => {
 };
 
 exports.updateUser = async (req, res) => {
-  const { username } = req.body;
+  const { username, name, contact_info, zipcode, bio } = req.body;
   const { id } = req.params;
+  console.log(id)
 
   // Not only do users need to be logged in to update a user, they
   // need to be authorized to perform this action for this particular
   // user (users should only be able to change their own profiles)
   if (!isAuthorized(id, req.session)) return res.sendStatus(403);
 
-  const updatedUser = await User.update(id, username);
+  const updatedUser = await User.update(username, name, contact_info, zipcode, bio, id);
   if (!updatedUser) return res.sendStatus(404)
   res.send(updatedUser);
-
-
-  //Cloudinary endpoint to handle image uplaods
-  const cloudinary = require('../utils/cloudinaryConfig');
-  const uploadImage = async (req, res) => {
-    try {
-      const fileStr = req.body.data;
-      const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
-        upload_preset: 'ml_default',
-      });
-      res.json({ url: uploadedResponse.secure_url });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Image upload failed' });
-    }
-  };
-  uploadImage()
 };
+//Cloudinary endpoint to handle image uplaods
+// const cloudinary = require('../utils/cloudinaryConfig');
+// const uploadImage = async (req, res) => {
+//   try {
+//     const fileStr = req.body.data;
+//     const uploadedResponse = await cloudinary.uploader.upload(fileStr, {
+//       upload_preset: 'ml_default',
+//     });
+//     res.json({ url: uploadedResponse.secure_url });
+//   } catch (error) {
+//     console.error(error);
+//     res.status(500).json({ error: 'Image upload failed' });
+//   }
+// };
+// uploadImage()

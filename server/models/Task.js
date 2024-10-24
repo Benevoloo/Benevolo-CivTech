@@ -16,7 +16,13 @@ class Task {
     return rows[0];
   }
 
-  static async updateTask(helper_id, status, id) {
+  static async getOwnTasks(neighbor_id) {
+    const query = `SELECT * FROM tasks WHERE neighbor_id = ?`
+    const { rows } = await knex.raw(query, [neighbor_id])
+    return rows;
+  }
+
+  static async updateTask(helper_id = null, status = null, id) {
     const query = `
       UPDATE tasks
       SET 
