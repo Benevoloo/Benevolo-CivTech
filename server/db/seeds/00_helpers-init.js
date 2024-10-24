@@ -59,7 +59,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 1,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -69,7 +68,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 1,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -79,7 +77,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 2,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -89,7 +86,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 2,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -99,7 +95,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 3,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -109,7 +104,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 3,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -119,7 +113,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 4,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -129,7 +122,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 4,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -139,7 +131,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 5,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -149,7 +140,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 5,
       "zipcode": 10705,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -159,7 +149,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 11,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -169,7 +158,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 11,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -179,7 +167,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 12,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -189,7 +176,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 12,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -199,7 +185,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 13,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -209,7 +194,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 13,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -219,7 +203,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 14,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -229,7 +212,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 14,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -239,7 +221,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 15,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -249,7 +230,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 15,
       "zipcode": 11232,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
 
@@ -260,7 +240,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 21,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -270,7 +249,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 21,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -280,7 +258,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 22,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -290,7 +267,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 22,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -300,7 +276,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 23,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -310,7 +285,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 23,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -320,7 +294,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 24,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -330,7 +303,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 24,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -340,7 +312,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 25,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     },
     {
@@ -350,7 +321,6 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "neighbor_id": 25,
       "zipcode": 10025,
       "status": "In-progress.",
-      "created_at": "10/11/2024",
       "expiration_date": "10/14/2024"
     }
   ]);
