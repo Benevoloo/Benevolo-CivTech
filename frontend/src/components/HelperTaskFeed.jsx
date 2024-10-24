@@ -5,6 +5,8 @@ import { useState, useEffect, useContext } from "react"
 import CurrentUserContext from "../contexts/current-user-context";
 import { fetchHandler } from "../utils/fetchingUtils";
 import { getUser } from "../adapters/user-adapter";
+import { checkForLoggedInUser } from "../adapters/auth-adapter";
+
 
 
 const HelperTaskFeed = () => {
@@ -13,15 +15,20 @@ const HelperTaskFeed = () => {
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true); // Added loading state
 
+
+    // return
+
     useEffect(() => {
         const fetchUserAndTasks = async () => {
             try {
 
-                const user = await getUser(currentUser.id);
-                const userZip = user.zipcode;
+                const me = await checkForLoggedInUser()
+                const helper_id = me.id
+                const zipcode = me.zipcode
+                console.log(helper_id, zipcode)
 
                 // Fetch tasks using the user's zipcode
-                const [data, error] = await fetchHandler(`/api/tasks/by-zipcode/${userZip}`);
+                const [data, error] = await fetchHandler(`/api/tasks/by-zipcode/${zipcode}`);
 
                 if (data) {
                     setTasks(data);
@@ -48,6 +55,7 @@ const HelperTaskFeed = () => {
     if (error) {
         return <div>Error fetching tasks: {error.message}</div>;
     }
+
 
     return (
         <div>
