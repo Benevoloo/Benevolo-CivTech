@@ -4,9 +4,22 @@
 
 @tailwind utilities;
 
+/* import fonts */
+@font-face {
+  font-family: 'Holen Vintage';
+  src: url(CivicTech/Benevolo-CivTech/frontend/src/styles/Fonts/Big\ Fonts/Holen_Vintage.ttf);
+}
+
+@font-face {
+  font-family: '';
+  src: url();
+}
+
+
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   margin-top: 77px;
+  background-color: #F7F5D0;
   /* top: 77px; */
 }
 
@@ -87,6 +100,7 @@ form {
 
 .userHook {
   font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
+  color: #153134;
 }
 
 
@@ -161,9 +175,9 @@ img {
 }
 
 section {
-  background-color: #EEBC32;
+  /* background-color: #EEBC32;
   border: #000;
-  border-radius: 20px;
+  border-radius: 20px; */
 }
 
 footer {

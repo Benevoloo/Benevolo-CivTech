@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 //import Sign up button
 import SignUpOptions from "../components/SignUpOptions";
+import { checkForLoggedInUser } from "../adapters/auth-adapter";
+import { useNavigate } from "react-router-dom";
+
+
 
 export default function HomePage() {
-
 
 
   return (
@@ -22,7 +25,7 @@ export default function HomePage() {
         </section>
 
         {/* making sure that there is harmony and consistency in the visuals, given the "split" look. This will be a flex box with
-      both paragraphs side by side, with a color backdrop.  */}
+        both paragraphs side by side, with a color backdrop.  */}
         <section id="aboutParas">
           {/* general class name first (this is a paragraph element) and then the specific element class.  */}
 
@@ -79,6 +82,7 @@ export default function HomePage() {
 
 
   )
+
 
 
 }
