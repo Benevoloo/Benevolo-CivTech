@@ -64,6 +64,11 @@
 
 // src/components/InterestsButton.jsx
 
+
+
+
+
+
 import { useState, useEffect } from "react";
 import { checkForInterest } from "../adapters/task-adapter";
 import Modal from "./Modal";
@@ -119,7 +124,7 @@ const InterestButton = ({ task_id }) => {
   return (
     <div>
       <button onClick={openModal} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
-    {[numOfPeople].length} helpers interested
+    {[].length} helpers interested
        </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
       <p>Will change descr. when i get back home.</p>
