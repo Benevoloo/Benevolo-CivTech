@@ -45,7 +45,7 @@
 //         <ul>
 //           {numOfPeople.map((helper) => {
 //             <li>
-              
+
 //             </li>
 //           })}
 //         </ul>
@@ -74,7 +74,7 @@ import { checkForInterest } from "../adapters/task-adapter";
 import Modal from "./Modal";
 
 const InterestButton = ({ task_id }) => {
- 
+
   // const taskInterests = async (task_id) => {
   //   const [data, error] = await checkForInterest(task_id);
   //   if (error) {
@@ -106,11 +106,13 @@ const InterestButton = ({ task_id }) => {
   //   }
   // };
 
-            {/* {interestedPeople.map((helper, index) => (
+  {/* {interestedPeople.map((helper, index) => (
             <li key={index}>{helper.helperId.name}</li>
           ))} */}
   const [interestedPeople, setInterestedPeople] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -119,16 +121,16 @@ const InterestButton = ({ task_id }) => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
- 
+
 
   return (
     <div>
       <button onClick={openModal} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
-    {[].length} helpers interested
-       </button>
+        {[interestedPeople].length} helpers interested
+      </button>
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-      <p>Will change descr. when i get back home.</p>
-      <button onClick={closeModal}>Close</button>
+        <p>Will change descr. when i get back home.</p>
+        <button onClick={closeModal}>Close</button>
       </Modal>
     </div>
   );
