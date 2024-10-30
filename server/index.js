@@ -73,6 +73,7 @@ app.delete('/api/task/:id', taskControllers.deleteTask) // tested
 
 
 app.get('/api/interests/:task_id', interestControllers.getInterests) // tested
+app.get('/api/helpersInterested/:task_id', interestControllers.listHelpersInterested) //tested
 app.post('/api/interests', interestControllers.createInterest) // tested
 app.delete('/api/interests/:task_id', interestControllers.deleteAllInterest) //tested
 

@@ -60,103 +60,116 @@ export default function SignUpHelper() {
     if (name === 'bio') setBio(value);
 
   };
+    return (
+    <>
+     <div className="p-6 bg-orange-300 flex justify-center items-center min-h-screen">
+     <div className="bg-slate-100 p-8 rounded-lg shadow-lg max-w-md w-full">
+      <h1 className="text-2xl font-bold mb-6">Sign Up</h1>
+      <form className="max-w-md mx-auto" onSubmit={handleSubmit}>
+        {/* Name */}
+        <div className="relative z-0 w-full mb-7 group">
+          <input 
+            type="text" 
+            name="name" 
+            id="name" 
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer space-y-4" 
+            placeholder="" 
+            required 
+            autoComplete="off"
+            onChange={handleChange}
+            value={name}
+          />
+          <label htmlFor="name" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Your Name</label>
+        </div>
 
-  return <>
-    <h1>Sign Up</h1>
-    <form onSubmit={handleSubmit} onChange={handleChange} aria-labelledby="create-heading">
-      <h2 id="baseHeading">Thank you for Volunteering!</h2>
-      <p className="signUpBlurb">Your decision to participate in this community means a lot {":]"} </p>
+        {/* Username */}
+        <div className="relative z-0 w-full mb-7 group">
+          <input 
+            type="text" 
+            name="username" 
+            id="username" 
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+            placeholder="" 
+            required 
+            autoComplete="off"
+            onChange={handleChange}
+            value={username}
+          />
+          <label htmlFor="username" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Username</label>
+        </div>
 
-      {/* name element
-      <label htmlFor="name" placeholder="Insert name">Name</label>
-      <input
-        autoComplete="off"
-        type="text"
-        id="name"
-        name="name"
-        onChange={handleChange}
-        value={name}
-      /> */}
-      {/* name input element */}
-      <label htmlFor="name">Name</label>
-      <input
-        autoComplete="on"
-        type="text"
-        id="name"
-        name="name"
-        placeholder="Your Name"
-        onChange={handleChange}
-        value={name}
-      />
+        {/* Password */}
+        <div className="relative z-0 w-full mb-7 group">
+          <input 
+            type="password" 
+            name="password" 
+            id="password" 
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+            placeholder="" 
+            required 
+            autoComplete="off"
+            onChange={handleChange}
+            value={password}
+          />
+          <label htmlFor="password" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        </div>
 
-      {/* username element */}
-      <label htmlFor="username">Username</label>
-      <input
-        autoComplete="on"
-        type="text"
-        id="username"
-        name="username"
-        placeholder="Your username"
-        onChange={handleChange}
-        value={username}
-      />
+        {/* ZipCode & Contact Info */}
+        <div className="grid md:grid-cols-2 md:gap-6">
+          <div className="relative z-0 w-full mb-7 group">
+            <input 
+              type="text" 
+              name="zipcode" 
+              id="zipcode" 
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" " 
+              required
+              maxLength={5} 
+              onChange={handleChange}
+              value={zipcode}
+            />
+            <label htmlFor="zipcode" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">ZipCode (10001)</label>
+          </div>
 
-      {/* Password element */}
-      <label htmlFor="password">Password</label>
-      <input
-        autoComplete="on"
-        type="password"
-        id="password"
-        name="password"
-        onChange={handleChange}
-        value={password}
-      />
+          <div className="relative z-0 w-full mb-5 group">
+            <input 
+              type="text" 
+              name="contact-info" 
+              id="contact-info"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+              placeholder=" " 
+              required 
+              maxLength={10}
+              onChange={handleChange}
+              value={contact_info}
+            />
+            <label htmlFor="contact-info" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Contact Information</label>
+          </div>
+        </div>
 
-      {/* Zipcode element */}
-      <label htmlFor="zipcode">Zipcode</label>
-      <input
-        autoComplete="off"
-        type="integer"
-        id="zipcode"
-        name="zipcode"
-        onChange={handleChange}
-        value={zipcode}
-        maxLength="5"
-      />
+        {/* Bio */}
+        <div className="relative z-0 w-full mb-6 group">
+          <input 
+            type="text" 
+            name="bio" 
+            id="bio" 
+            className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" 
+            placeholder="" 
+            required 
+            autoComplete="off"
+            onChange={handleChange}
+            value={bio}
+          />
+          <label htmlFor="bio" className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Tell us about yourself</label>
+        </div>
 
-      <label htmlFor="setting-contact-info">Contact Info</label>
-      <input
-        autoComplete="on"
-        type="text"
-        id="setting-contact-info"
-        name="contact-info"
-        onChange={handleChange}
-        value={contact_info}
-      />
-
-      <label htmlFor="creating-bio">Tell Us About Yourself</label>
-      <input
-        autoComplete="off"
-        type="text"
-        id="creating-bio"
-        name="bio"
-        // if user type is equal to helper
-        // placeholder = "what do you like? dislike? what are some skills you have that could be helpful? "
-        // if user type is equal to neighbor vvv
-        placeholder="What do you like? Dislike?"
-        onChange={handleChange}
-        value={bio}
-      />
-
-      {/* In reality, we'd want a LOT more validation on signup, so add more things if you have time
-        <label htmlFor="password-confirm">Password Confirm</label>
-        <input autoComplete="off" type="password" id="password-confirm" name="passwordConfirm" />
-      */}
-
-      <button>Sign Up Now!</button>
-    </form>
-    {!!errorText && <p>{errorText}</p>}
-    <p>Already have an account with us? <Link to="/login">Log in!</Link></p>
-
-  </>;
+        <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Sign Up Now</button>
+      </form>
+      
+      {!!errorText && <p className="text-red-500 mt-4">{errorText}</p>}
+      <p className="mt-4">Already have an account with us? <Link to="/login" className="text-blue-600 hover:underline">Log in!</Link></p>
+      </div>
+      </div>
+  </>
+  );
 }

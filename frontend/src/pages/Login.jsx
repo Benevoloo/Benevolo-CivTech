@@ -23,18 +23,44 @@ export default function LoginPage() {
     user.is_neighbor ? navigate(`/users/${user.id}/neighbor`): navigate(`/users/${user.id}/helper`); // if is_neighbor is true then it will navigate to the neighbor side
   };
 
-  return <>
-    <h1>Login</h1>
-    <form onSubmit={handleSubmit} aria-labelledby="login-heading">
-      <h2 id='login-heading'>Log back in!</h2>
-      <label htmlFor="username">Username</label>
-      <input type="text" autoComplete="username" id="username" name="username" />
-
-      <label htmlFor="password">Password</label>
-      <input type="password" autoComplete="current-password" id="password" name="password" />
-
-      <button>Log in!</button>
+  return ( <>
+    <div className="p-8 bg-gradient-to-r from-orange-200 to-orange-300 flex justify-center items-center min-h-screen">
+      <div className="bg-yellow-50 p-10 rounded-xl shadow-lg max-w-md w-full">
+        <form onSubmit={handleSubmit} aria-labelledby="login-heading">
+          <h1 id="login-heading" className="text-3xl font-bold mb-8 text-center text-gray-800">
+            Welcome Back!
+          </h1>
+          
+          {/* Username */}
+          <div className="relative z-0 w-full mb-6 group">
+            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">Username</label>
+            <input
+              type="text"
+              autoComplete="username"
+              id="username"
+              name="username"
+              className="block w-full px-4 py-3 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+              placeholder="Enter your username"
+            />
+          </div>
+          
+          {/* Password */}
+          <div className="relative z-0 w-full mb-6 group">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+            <input
+              type="password"
+              autoComplete="current-password"
+              id="password"
+              name="password"
+              className="block w-full px-4 py-3 text-sm text-gray-900 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 focus:outline-none"
+              placeholder="Enter your password"
+            />
+          </div>
+    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Log in!</button>
     </form>
     {!!errorText && <p>{errorText}</p>}
-  </>;
+    </div>
+    </div>
+  </>
+  )
 }
