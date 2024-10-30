@@ -4,9 +4,22 @@
 
 @tailwind utilities;
 
+/* import fonts */
+@font-face {
+  font-family: 'Holen Vintage';
+  src: url(CivicTech/Benevolo-CivTech/frontend/src/styles/Fonts/Big\ Fonts/Holen_Vintage.ttf);
+}
+
+@font-face {
+  font-family: '';
+  src: url();
+}
+
+
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   margin-top: 77px;
+  background-color: #F7F5D0;
   /* top: 77px; */
 }
 
@@ -63,12 +76,12 @@ nav a {
   text-decoration: none;
 }
 
-form {
+/* form {
   padding: 1rem;
-  border: 1px solid #CCC;
+  border: 1px;
   width: 15rem;
   margin: 1rem auto;
-}
+} */
 
 /* automatically added by NavLink component */
 .active {
@@ -85,8 +98,43 @@ form {
   text-align: center;
 }
 
+
+/* Tab CSS */
+/* formats the tabs within the container */
+.tabs-container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+/* formats the tabs themselves */
+.tabs {
+  display: flex;
+}
+
+/* Styling the tabs themselves and the way the cursor interacts with them */
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background-color: #f1f1f1;
+}
+
+.tab.active {
+  background-color: #ddd;
+}
+
+.tab-content {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* css for tabs above --------------------------------------------------------------------------------*/
+
 .userHook {
   font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
+  color: #153134;
 }
 
 
@@ -161,9 +209,9 @@ img {
 }
 
 section {
-  background-color: #EEBC32;
+  /* background-color: #EEBC32;
   border: #000;
-  border-radius: 20px;
+  border-radius: 20px; */
 }
 
 footer {
@@ -224,7 +272,9 @@ footer {
   border: 5px;
   border-radius: 20px;
   border-color: #000;
+
 }
+
 
 
 /* Modal Overlay */
@@ -262,3 +312,4 @@ footer {
   cursor: pointer;
 }
  
+
