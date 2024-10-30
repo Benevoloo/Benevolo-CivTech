@@ -58,7 +58,7 @@
 //         <br />
 //         {/* scroll down to sign up options component*/}
 
-//         {<SignUpOptions />}
+        // {<SignUpOptions />}
 
 //         <footer>
 //           <section className="sourcesFooter">
@@ -277,7 +277,7 @@ export default function HomePage() {
           >
             <h3 className="text-2xl font-bold mb-4">Become A Helper</h3>
             <p className="mb-6 text-center">Are you willing to help others and connect with your community?</p>
-            <Link to="/signup/helper" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Helper</Link>
+            <Link to="/sign-up-helper" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Helper</Link>
           </motion.div>
           <motion.div
             className="bg-green-600 text-white p-10 rounded-lg shadow-md flex flex-col items-center"
@@ -286,7 +286,7 @@ export default function HomePage() {
           >
             <h3 className="text-2xl font-bold mb-4">Become A Neighbor</h3>
             <p className="mb-6 text-center">Are you homebound, disabled, or elderly in need of assistance?</p>
-            <Link to="/signup/neighbor" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Neighbor</Link>
+            <Link to="/sign-up-neighbor" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Neighbor</Link>
           </motion.div>
         </div>
       </motion.section>
