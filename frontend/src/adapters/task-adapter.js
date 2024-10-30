@@ -37,3 +37,8 @@ export const updateTask = async (helper_id, status, id) => {
 export const deleteTask = async (id) => {
   return fetchHandler(`${baseUrl}/task/${id}`, deleteOptions)
 }
+
+export const listHelpersInt = async (task_id) => {
+  return fetchHandler(`${baseUrl}/helpersInterested/${task_id}`)
+}
+

@@ -20,6 +20,18 @@ class Interest {
     const { rows } = await knex.raw(query, [task_id])
     return rows
   }
+
+  static async listHelpersInterested (task_id) {
+    const query = `
+    SELECT users.*
+    FROM users
+    JOIN interests ON users.id = interests.helper_id
+    WHERE interests.task_id = ?;
+    `
+    const { rows } = await knex.raw(query, [task_id])
+    return rows
+    
+  }
 }
 
 module.exports = Interest;

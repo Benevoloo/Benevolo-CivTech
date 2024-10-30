@@ -20,3 +20,10 @@ exports.deleteAllInterest = async (req, res) => {
 
   res.send(deletedInterests)
 }
+
+exports.listHelpersInterested = async (req, res) => {
+  const { task_id} = req.params
+  const helpersInterested = await Interest.listHelpersInterested(task_id)
+  
+  res.send(helpersInterested)
+}
