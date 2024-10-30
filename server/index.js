@@ -60,6 +60,10 @@ app.patch('/api/users/:id', checkAuthentication, userControllers.updateUser); //
 app.get('/api/tasks/by-zipcode/:zipcode', taskControllers.listByZipcode) // tested
 app.get('/api/task/:id', taskControllers.getTaskById) // tested
 app.get('/api/own-task/:neighbor_id', taskControllers.getOwnTasks) // tested
+app.get('/api/helper-tasks-progress/:id', taskControllers.getHelperTaskInProgress) // tested
+app.get('/api/neighbor-tasks-progress/:id', taskControllers.getNeighborTaskInProgress) // tested
+app.get('/api/helper-tasks-complete/:id', taskControllers.getHelperTaskCompleted) // tested
+app.get('/api/neighbor-tasks-complete/:id', taskControllers.getNeighborTaskCompleted) //tested
 app.post('/api/tasks', taskControllers.createTasks) // tested
 app.patch('/api/task/:id', taskControllers.updateTask) // tested
 app.delete('/api/task/:id', taskControllers.deleteTask) // tested

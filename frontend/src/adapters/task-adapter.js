@@ -30,6 +30,22 @@ export const getTaskById = async (neighbor_id) => {
   return fetchHandler(`${baseUrl}/task/${neighbor_id}`)
 }
 
+export const getHelperTaskInProgress = async (id) => {
+  return fetchHandler(`${baseUrl}/helper-tasks-progress/${id}`)
+}
+
+export const getNeighborTaskInProgress = async (id) => {
+  return fetchHandler(`${baseUrl}/neighbor-tasks-progress/${id}`)
+}
+
+export const getHelperTaskCompleted = async (id) => {
+  return fetchHandler(`${baseUrl}/helper-tasks-complete/${id}`)
+}
+
+export const getNeighborTaskCompleted = async (id) => {
+  return fetchHandler(`${baseUrl}/neighbor-tasks-complete/${id}`)
+}
+
 export const updateTask = async (helper_id, status, id) => {
   return fetchHandler(`${baseUrl}/task/${id}`, getPatchOptions({helper_id, status}))
 }
