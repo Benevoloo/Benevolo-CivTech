@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import { checkForLoggedInUser } from '../adapters/auth-adapter';
 
 //helps send data of helper that's interested in the specific task of the server 
-import { makeInterest } from '../adapters/task-adapter';
+import { makeInterest, checkForInterest } from '../adapters/task-adapter';
 
 const InterestButton = ({ task_key }) => {
     const [interestState, setInterestState] = useState("Accept")
 
     //create a handleinterest func that sends interest to data base when you click the button. 
+
+
 
     const handleInterest = async (e) => {
         //prevent reloading behavior 
@@ -22,6 +24,15 @@ const InterestButton = ({ task_key }) => {
         const helper_id = me.id
         console.log({ helper_id }, { task_key })
 
+        //check for the interest on this task 
+        const interest = await checkForInterest(task_key)
+        console.log({ interest })
+
+        if (interest.helper_id === helper_id) {
+            setInterestState("Requested!")
+        }
+
+
         if (task_key && helper_id) {
             makeInterest(helper_id, task_key);
             setInterestState('Requested!')
@@ -30,6 +41,8 @@ const InterestButton = ({ task_key }) => {
                 <p>Request couldn't be made.</p>
             )
         }
+
+
 
         //define a tuple that will help you return what you need to return based on whether the post request was successful
 

@@ -98,6 +98,40 @@ form {
   text-align: center;
 }
 
+
+/* Tab CSS */
+/* formats the tabs within the container */
+.tabs-container {
+  width: 400px;
+  margin: 20px auto;
+}
+
+/* formats the tabs themselves */
+.tabs {
+  display: flex;
+}
+
+/* Styling the tabs themselves and the way the cursor interacts with them */
+.tab {
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  background-color: #f1f1f1;
+}
+
+.tab.active {
+  background-color: #ddd;
+}
+
+.tab-content {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+/* css for tabs above --------------------------------------------------------------------------------*/
+
 .userHook {
   font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
   color: #153134;
