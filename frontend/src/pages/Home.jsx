@@ -1,10 +1,12 @@
-// import React from "react";
-// import { Link } from "react-router-dom";
-// //import Sign up button
-// import SignUpOptions from "../components/SignUpOptions";
 
-// export default function HomePage() {
+import React from "react";
+import { Link } from "react-router-dom";
+//import Sign up button
+import SignUpOptions from "../components/SignUpOptions";
+import { checkForLoggedInUser } from "../adapters/auth-adapter";
+import { useNavigate } from "react-router-dom";
 
+export default function HomePage() {
 
 
 //   return (
@@ -21,10 +23,12 @@
 //           <img className="helpingPeople" alt="Elderly woman smiling, holding the hand of a woman blurred and closer to the camera, with the bottom of her face showing." src="https://cdn.sixtyandme.com/wp-content/uploads/2015/02/Sixty-and-Me_Helping-Others.jpg" />
 //         </section>
 
+
 //         {/* making sure that there is harmony and consistency in the visuals, given the "split" look. This will be a flex box with
 //       both paragraphs side by side, with a color backdrop.  */}
 //         <section id="aboutParas">
 //           {/* general class name first (this is a paragraph element) and then the specific element class.  */}
+>>
 
 //           <section id="homePara1">
 //             <h3 className="paraTitle">What is Benevolo?</h3>
@@ -290,17 +294,3 @@ export default function HomePage() {
           </motion.div>
         </div>
       </motion.section>
-
-      {/* Footer Section */}
-      <footer className="bg-gray-800 py-12 text-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h5 className="text-lg font-bold mb-4">Sources</h5>
-          <p className="text-sm mb-2">1. World Population Review. “New York City, New York Population 2024.” Worldpopulationreview.com, 2024.</p>
-          <p className="text-sm mb-2">2. Coordinated Public Transit-Human Services Transportation Plan for NYMTC Region • Final Chapter 3.</p>
-          <p className="text-sm mb-2">3. “Spotlight: Disability and Employment in New York City.” Office of the New York City Comptroller, 2021.</p>
-          <p className="text-sm mt-4">2024 Benevolo. Made by Fiona, Chris, Alex</p>
-        </div>
-      </footer>
-    </div>
-  );
-}
