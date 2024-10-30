@@ -63,12 +63,12 @@ nav a {
   text-decoration: none;
 }
 
-form {
+/* form {
   padding: 1rem;
-  border: 1px solid #CCC;
+  border: 1px;
   width: 15rem;
   margin: 1rem auto;
-}
+} */
 
 /* automatically added by NavLink component */
 .active {
