@@ -4,6 +4,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { getUser } from "../adapters/user-adapter";
 import { logUserOut } from "../adapters/auth-adapter";
 import UpdateUsernameForm from "../components/UpdateUsernameForm";
+import { updateTask } from "../adapters/task-adapter";
 import ProfileTaskList from "../components/ProfileTaskList"
 
 export default function UserPage() {
@@ -11,7 +12,7 @@ export default function UserPage() {
   const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
   const [userProfile, setUserProfile] = useState(null);
   const [errorText, setErrorText] = useState(null);
-  const { id } = useParams();
+  const { id, task_id } = useParams();
   const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
 
 
@@ -38,16 +39,29 @@ export default function UserPage() {
   // Ideally, this would update if we mutated it
   // But we also have to consider that we may NOT be on the current users page
   const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
+  const profileBio = isCurrentUserProfile ? currentUser.bio : userProfile.bio
+  const profileId = isCurrentUserProfile ? currentUser.id : userProfile.id
+
+  const handleAccept = async (e) => {
+    e.preventDefault()
+    await updateTask(profileId, "In-progress", task_id)
+    navigate(`/users/${currentUser.id}/neighbor`)
+  }
 
   return <>
     <h1>{profileUsername}</h1>
     {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
-    <p>If the user had any data, here it would be</p>
-    <p>Fake Bio or something</p>
+    <p>{profileBio}</p>
     {
       !!isCurrentUserProfile
       && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
     }
-    
+    {
+      !isCurrentUserProfile
+      && 
+      <>
+        <button onClick={handleAccept}>Accept</button>
+      </>
+    }
   </>;
 }

@@ -15,6 +15,15 @@ export default function SiteHeadingAndNav() {
           currentUser
             ? <>
               <li><NavLink to='/users' end={true}>Users</NavLink></li>
+              {
+                currentUser.is_neighbor 
+                  ? <>
+                      <li><NavLink to={`/users/${currentUser.id}/neighbor`}>Post Tasks</NavLink></li>
+                    </> 
+                  : <>
+                      <li><NavLink to={`/users/${currentUser.id}/helper`}>View Tasks</NavLink></li>
+                    </>
+              }
               <li><NavLink to={`/users/${currentUser.id}`}>{currentUser.username}</NavLink></li>
             </>
             : <>

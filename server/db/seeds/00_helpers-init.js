@@ -327,9 +327,9 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
 
   await knex('interests').insert([
     {"helper_id": 6, "task_id": 10},
-    {"helper_id": 5, "task_id": 8},
-    {"helper_id": 4, "task_id": 6},
-    {"helper_id": 3, "task_id": 4},
-    {"helper_id": 2, "task_id": 2}
+    {"helper_id": 7, "task_id": 8},
+    {"helper_id": 8, "task_id": 6},
+    {"helper_id": 9, "task_id": 4},
+    {"helper_id": 10, "task_id": 2}
   ]);
 };

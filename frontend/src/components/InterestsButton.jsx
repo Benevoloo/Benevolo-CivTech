@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import { checkForInterest } from "../adapters/task-adapter";
 import { listHelpersInt } from "../adapters/task-adapter";
 import Modal from "./Modal";
@@ -52,8 +53,11 @@ const InterestButton = ({ task_id }) => {
         <p className="font-semibold">{interestedPeople.length} helpers interested</p>
        {/* Displays the name of each helper that requests the tast */}
        <ul className="list-disc ml-5">
+        {interestedPeople.forEach(person => console.log(person.name))}
         {interestedPeople.map((helper, index) => (
-          <li link to='/profile' key={index}>{helper.name}</li>
+          <li key={index}>
+            <NavLink to={`/users/${helper.id}/${task_id}`}>{helper.name}</NavLink>
+          </li>
           ))}
          </ul>
          
