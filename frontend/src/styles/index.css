@@ -4,6 +4,7 @@
 
 @tailwind utilities;
 
+
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   margin-top: 77px;
@@ -47,6 +48,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   margin-right: 35px;
+  z-index: 100;
 }
 
 nav ul {

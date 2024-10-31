@@ -58,7 +58,7 @@
 //         <br />
 //         {/* scroll down to sign up options component*/}
 
-        // {<SignUpOptions />}
+//         {<SignUpOptions />}
 
 //         <footer>
 //           <section className="sourcesFooter">
@@ -181,7 +181,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-100">
 
       {/* Main First section  */}
-      <motion.section
+      {/* <motion.section
         className="flex items-center justify-center text-center min-h-[60vh] py-20 px-6 bg-yellow-300"
         // className="flex items-center justify-center text-center min-h-[60vh] py-20 px-6 bg-green-100" // teal vers.
         initial={{ opacity: 0, y: -50 }}
@@ -206,8 +206,18 @@ export default function HomePage() {
           >
             We believe that community helps us grow, connect, and support each other. Discover how Benevolo can help you make meaningful connections today.
           </motion.p>
+        </div> */}
+      {/* </motion.section> */}
+         <section className="flex items-center justify-center text-center min-h-[60vh] py-20 px-6 bg-yellow-300 z-10">
+        <div className="max-w-3xl">
+          <h1 className="text-5xl font-extrabold text-teal-900 mb-8">
+            Community is Key.
+          </h1>
+          <p className="text-lg text-teal-900 mb-12">
+            We believe that community helps us grow, connect, and support each other. Discover how Benevolo can help you make meaningful connections today.
+          </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* Image*/}
       <motion.section
@@ -225,7 +235,7 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
           >
-            <img className="rounded-lg shadow-lg" alt="Elderly woman smiling, holding the hand of a woman blurred and closer to the camera, with the bottom of her face showing." src="https://cdn.sixtyandme.com/wp-content/uploads/2015/02/Sixty-and-Me_Helping-Others.jpg" />
+            <img className="rounded-lg shadow-lg" alt="Elderly woman smiling" src="https://cdn.sixtyandme.com/wp-content/uploads/2015/02/Sixty-and-Me_Helping-Others.jpg" />
           </motion.div>
           <motion.div
             className="flex flex-col justify-center"
@@ -277,7 +287,7 @@ export default function HomePage() {
           >
             <h3 className="text-2xl font-bold mb-4">Become A Helper</h3>
             <p className="mb-6 text-center">Are you willing to help others and connect with your community?</p>
-            <Link to="/sign-up-helper" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Helper</Link>
+            <Link to="/signup/helper" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Helper</Link>
           </motion.div>
           <motion.div
             className="bg-green-600 text-white p-10 rounded-lg shadow-md flex flex-col items-center"
@@ -286,7 +296,7 @@ export default function HomePage() {
           >
             <h3 className="text-2xl font-bold mb-4">Become A Neighbor</h3>
             <p className="mb-6 text-center">Are you homebound, disabled, or elderly in need of assistance?</p>
-            <Link to="/sign-up-neighbor" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Neighbor</Link>
+            <Link to="/signup/neighbor" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">Sign Up As a Neighbor</Link>
           </motion.div>
         </div>
       </motion.section>
