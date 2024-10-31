@@ -72,7 +72,6 @@ const HelperBasePage = () => {
             <section id="helperBody">
                 <section id="taskFeed" className="helperElement">
                     <section id="taskContainer" className="helperElement">
-                        <HelperTaskFeed />
                     </section>
                 </section>
 
