@@ -20,7 +20,7 @@ await User.create('kittykat', '1234', 'John D', null, 10705, 'Hey I like Kit-Kat
 await User.create('sandwichlover', '1234', 'Olivia S', null, 10705, 'Hey I like Sandwiches', true);//4
 await User.create('burgerfan', '1234', 'Linda G', null, 10705, 'Hey I like Burgers', true);//5
 await User.create('l33t-guy', '1234', 'Fiona', null, 10705, 'Hey I like Reeses.', false);//6
-await User.create('wowow', '1234', 'Alex', null, 10705, 'Hey I like Snickers', false);//7
+await User.create('wowow', '1234', 'Alex', null, 10001, 'Hey I like Snickers', false);//7 //////////////////ALEX
 await User.create('frenchfry', '1234', 'Jack F', null, 10705, 'Hey I like Fries', false);//8
 await User.create('pizzafan', '1234', 'Mario L', null, 10705, 'Hey I like Pizza', false);//9
 await User.create('icecreamfan', '1234', 'Nina A', null, 10705, 'Hey I like Ice Cream', false);//10
@@ -42,7 +42,7 @@ await User.create('starrynight', '1234', 'Vincent V', null, 10025, 'Hey I like P
 await User.create('chocolatelover', '1234', 'Mel C', null, 10025, 'Hey I like Chocolate', true);//22
 await User.create('wonderwoman', '1234', 'Diana P', null, 10025, 'Hey I like Justice', true);//23
 await User.create('guitarhero', '1234', 'Slash R', null, 10025, 'Hey I like Guitars', true);//24
-await User.create('mathgenius', '1234', 'Isaac N', null, 10025, 'Hey I like Math', true);//25
+await User.create('Fiona', '1234', 'Fiona B', null, 10001, 'Hey I like Math', true);//25 ////////////////////FIONA
 await User.create('soccerguy', '1234', 'David B', null, 10025, 'Hey I like Soccer', false);//26
 await User.create('superman', '1234', 'Clark K', null, 10025, 'Hey I like Flying', false);//27
 await User.create('bakerboy', '1234', 'Tommy C', null, 10025, 'Hey I like Baking', false);//28

@@ -48,8 +48,8 @@ import { deleteTask } from "../adapters/task-adapter";
 const NeighborTasks = ({ submittedTasks, setSubmittedTasks }) => {
   // Function to handle deleting a task from the list
   
-  const handleDelete = (index) => {
-    deleteTask()
+  const handleDelete = (task_id, index) => {
+    deleteTask(task_id)
     const updatedTasks = submittedTasks.filter((_, i) => i !== index);
     setSubmittedTasks(updatedTasks);
   };
@@ -74,7 +74,7 @@ const NeighborTasks = ({ submittedTasks, setSubmittedTasks }) => {
               </div>
               <InterestButton task_id={task.id} />
               <button
-                onClick={() => handleDelete(index)}
+                onClick={() => handleDelete(task.id, index)}
                 className="mt-2 p-2 w-full bg-red-500 text-white rounded-lg hover:bg-red-600"
               >
                 Delete Task
