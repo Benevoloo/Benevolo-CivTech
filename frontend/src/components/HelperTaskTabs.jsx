@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/index.css";
-import HelperTaskFeed from "./TabsContent/HelperTaskRecentFeed";
+import HelperTaskRecentFeed from "./TabsContent/HelperTaskRecentFeed";
+import YourTasks from "./TabsContent/YourTasksFeed";
 
 const Tabs = () => {
     const [toggleState, setToggleState] = useState(1);
@@ -22,10 +23,10 @@ const Tabs = () => {
 
                 <section className="content-container">
                     <section className={toggleState === 1 ? "tab-content active-content" : "tab-content"} id="tab1-content">
-                        <HelperTaskFeed />
+                        <HelperTaskRecentFeed />
                     </section>
                     <section className={toggleState === 2 ? "tab-content active-content" : "tab-content"} id="tab2-content">
-                        <p>bong!</p>
+                        <YourTasks />
                     </section>
 
                 </section>

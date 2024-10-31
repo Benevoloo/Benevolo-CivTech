@@ -3,6 +3,7 @@ import CurrentUserContext from "../../contexts/current-user-context";
 import { fetchHandler } from "../../utils/fetchingUtils";
 import { getUser } from "../../adapters/user-adapter";
 import { checkForLoggedInUser } from "../../adapters/auth-adapter";
+import HelperTask from "../HelperTaskTicket";
 
 const YourTasks = () => {
     const { currentUser } = useContext(CurrentUserContext);
@@ -18,17 +19,17 @@ const YourTasks = () => {
                 //this is where everything changes. 
                 const me = await checkForLoggedInUser()
                 const helper_id = me.id
-                const zipcode = me.zipcode
-                console.log(helper_id, zipcode)
 
                 // Fetch tasks using the user's zipcode
-                const [data, error] = await fetchHandler(`/api/tasks/by-zipcode/${zipcode}`);
+                const [data, error] = await fetchHandler(`/api/helper-tasks-progress/${helper_id}`);
 
                 if (data) {
-                    setTasks(data);
+                    setTasks(data.length > 4 ? data.slice[0, 4] : data);
+                    console.log('Fetched tasks:', data);
                 }
                 if (error) {
                     setError(error);
+                    console.log(error)
                 }
             } catch (err) {
                 setError(err);
@@ -51,9 +52,27 @@ const YourTasks = () => {
     }
 
 
+
     return (
         <>
-            <h5>Requested Tasks</h5>
+            <section className="yourTasksContainer">
+                {tasks.length === 0 ? (
+                    <p>You don't have any active tasks right now. Go to your feed to see how you can help a neighbor out!</p>
+                ) : (
+                    <ul>
+                        {tasks.map(task => (
+                            <HelperTask key={task.id}
+                                task_id={task.id}
+                                task_status={task.status}
+                                title={task.title}
+                                body={task.body}
+                                created_at={task.created_at}
+                                expires_at={task.expiration_date}
+                            />
+                        ))}
+                    </ul>
+                )}            </section>
+
         </>
     )
 }

@@ -9,7 +9,7 @@ import { checkForLoggedInUser } from "../../adapters/auth-adapter";
 
 import HelperTask from "../HelperTaskTicket";
 
-const HelperTaskFeed = () => {
+const HelperTaskRecentFeed = () => {
     const { currentUser } = useContext(CurrentUserContext);
     const [tasks, setTasks] = useState([]);
     const [error, setError] = useState(null);
@@ -28,13 +28,15 @@ const HelperTaskFeed = () => {
                 console.log(helper_id, zipcode)
 
                 // Fetch tasks using the user's zipcode
-                const [data, error] = await fetchHandler(`/api/tasks/by-zipcode/${zipcode}`);
-                
-                if (data) {
-                    setTasks(data);
+                const [taskData, taskError] = await fetchHandler(`/api/tasks/by-zipcode/${zipcode}`);
+
+
+                if (taskData) {
+                    setTasks(taskData);
+                    console.log({ tasks })
                 }
-                if (error) {
-                    setError(error);
+                if (taskError) {
+                    setError(taskError);
                 }
             } catch (err) {
                 setError(err);
@@ -58,7 +60,7 @@ const HelperTaskFeed = () => {
 
 
     return (
-        <div>
+        <section className="recentFeedContainer">
             <h3>Tasks for Zipcode: {currentUser.zipcode}</h3>
             {tasks.length === 0 ? (
                 <p>No tasks available for your zipcode.</p>
@@ -75,9 +77,9 @@ const HelperTaskFeed = () => {
                     ))}
                 </ul>
             )}
-        </div>
+        </section>
     );
 };
 
 
-export default HelperTaskFeed
+export default HelperTaskRecentFeed
