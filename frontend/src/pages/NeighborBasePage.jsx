@@ -243,7 +243,7 @@ const NeighborTaskInputCard = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await makeTask(title, body, zipcode, "waiting", expiration_date, neighborId);
+    await makeTask(title, body, zipcode, null, expiration_date, neighborId);
 
     setTitle('');
     setBody('');
