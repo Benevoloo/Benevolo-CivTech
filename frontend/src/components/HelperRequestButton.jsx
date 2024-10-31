@@ -52,7 +52,7 @@ const InterestButton = ({ task_key }) => {
 
     return (
         <>
-            <button onClick={handleInterest}>{interestState}</button>
+            <button type='button' className={interestState === "Accept" ? "interest-button" : "interest-button active"} onClick={handleInterest}>{interestState}</button>
         </>
     )
 }

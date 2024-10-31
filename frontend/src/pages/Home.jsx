@@ -19,7 +19,7 @@ export default function HomePage() {
         transition={{ duration: 1.5, ease: "easeInOut" }}
         style={{ y: yRange }}
       >
-        <div className="max-w-3xl">
+        <div className="max-w-3xl userHook">
           <motion.h1
             className="text-5xl font-extrabold text-teal-900 mb-8"
             initial={{ opacity: 0 }}
