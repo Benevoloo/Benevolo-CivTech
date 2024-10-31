@@ -4,17 +4,6 @@
 
 @tailwind utilities;
 
-/* import fonts */
-@font-face {
-  font-family: 'Holen Vintage';
-  src: url(CivicTech/Benevolo-CivTech/frontend/src/styles/Fonts/Big\ Fonts/Holen_Vintage.ttf);
-}
-
-@font-face {
-  font-family: '';
-  src: url();
-}
-
 
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
@@ -61,6 +50,7 @@ nav {
   display: flex;
   justify-content: space-evenly;
   margin-right: 35px;
+  z-index: 100;
 }
 
 nav ul {

@@ -29,7 +29,7 @@ const HelperTaskFeed = () => {
 
                 // Fetch tasks using the user's zipcode
                 const [data, error] = await fetchHandler(`/api/tasks/by-zipcode/${zipcode}`);
-
+                
                 if (data) {
                     setTasks(data);
                 }
