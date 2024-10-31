@@ -33,6 +33,7 @@ input {
 }
 
 header {
+  z-index: 1;
   position: fixed;
   font-family: 'Holen Vintage', 'Serif';
   top: 0%;
@@ -121,11 +122,19 @@ nav a {
   background-color: #f1f1f1;
 }
 
-.tab.active {
+.tab.active-tab {
   background-color: #ddd;
 }
 
+.content-container {}
+
 .tab-content {
+  display: none;
+}
+
+.tab-content.active-content {
+  display: block;
+  visibility: visible;
   border: 1px solid #ddd;
   padding: 10px;
 }
@@ -311,5 +320,3 @@ footer {
   font-size: 1.5rem;
   cursor: pointer;
 }
- 
-

@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 //usercontext to get the id, name, and other profile details to be rendered right by the task container
 import CurrentUserContext from "../contexts/current-user-context";
 import { checkForLoggedInUser } from "../adapters/auth-adapter";
-
+import HelperTaskFeed from "../components/TabsContent/HelperTaskRecentFeed";
+import Tabs from "../components/HelperTaskTabs";
 
 const HelperBasePage = () => {
     //help user navigate to their personal profile 
@@ -72,7 +73,7 @@ const HelperBasePage = () => {
             <section id="helperBody">
                 <section id="taskFeed" className="helperElement">
                     <section id="taskContainer" className="helperElement">
-                        <HelperTaskFeed />
+                        <Tabs />
                     </section>
                 </section>
 
