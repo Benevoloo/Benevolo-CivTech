@@ -48,14 +48,14 @@ const HelperTask = ({ task_id, task_status, title, body, created_at, expires_at 
     }, [isInterested]);
 
     return (
-        <>
+        <section className="task-ticket">
             <h3 className="task-title">{title}</h3>
             <h5 className="task-creation-date">{created_at}</h5>
             <p className="task-desc">{body}</p>
             <p className="task-expiration-date">{expires_at}</p>
 
             {task_status === "In-progress" ? '' : <InterestButton task_key={task_id} />}
-        </>
+        </section>
     )
 }
 

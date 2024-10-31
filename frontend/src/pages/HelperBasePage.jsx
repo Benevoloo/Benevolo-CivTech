@@ -5,6 +5,7 @@ import CurrentUserContext from "../contexts/current-user-context";
 import { checkForLoggedInUser } from "../adapters/auth-adapter";
 import HelperTaskFeed from "../components/TabsContent/HelperTaskRecentFeed";
 import Tabs from "../components/HelperTaskTabs";
+import UserBlock from "../components/UserBlock";
 
 const HelperBasePage = () => {
     //help user navigate to their personal profile 
@@ -68,9 +69,9 @@ const HelperBasePage = () => {
 
     return (
         <>
-            <h1>Welcome, {userName ? userName : error}!</h1>
+            <h1 className="welcomeHeaderHelper">{userName ? userName : error}'s Task Page</h1>
 
-            <section id="helperBody">
+            <section id="helperTasks">
                 <section id="taskFeed" className="helperElement">
                     <section id="taskContainer" className="helperElement">
                         <Tabs />
@@ -79,10 +80,7 @@ const HelperBasePage = () => {
 
                 <section id="helperProfilePrev" className="helperElement">
                     {/* User Photo component*/}
-                    <h2 id="photoHere">{`:]`}</h2>
-                    <h3 id="profileHeader">{userName ? userName : error}</h3>
-                    <h5>{name ? name : error}</h5>
-                    <h5>Your Zipcode: {zipcode ? zipcode : error}</h5>
+                    <UserBlock />
 
                 </section>
 

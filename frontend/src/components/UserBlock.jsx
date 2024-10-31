@@ -94,96 +94,93 @@ import UpdateUsernameForm from "../components/UpdateUsernameForm";
 import AlexPfp from '../images/Alex_pfp.png';
 import { updateTask } from "../adapters/task-adapter";
 
-export default function UserPage() {
-  const navigate = useNavigate();
-  const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
-  const [userProfile, setUserProfile] = useState(null);
-  const [errorText, setErrorText] = useState(null);
-  const [isAccepted, setIsAccepted] = useState(false);
-  const { id, task_id } = useParams();
-  const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
+export default function UserBlock() {
+    const navigate = useNavigate();
+    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    const [userProfile, setUserProfile] = useState(null);
+    const [errorText, setErrorText] = useState(null);
+    const [isAccepted, setIsAccepted] = useState(false);
+    const { id, task_id } = useParams();
+    const isCurrentUserProfile = currentUser && currentUser.id === Number(id);
 
 
-  useEffect(() => {
-    const loadUser = async () => {
-      const [user, error] = await getUser(id);
-      if (error) return setErrorText(error.message);
-      setUserProfile(user);
+    useEffect(() => {
+        const loadUser = async () => {
+            const [user, error] = await getUser(id);
+            if (error) return setErrorText(error.message);
+            setUserProfile(user);
+        };
+
+        loadUser();
+    }, [id]);
+
+    const handleLogout = async () => {
+        logUserOut();
+        setCurrentUser(null);
+        navigate('/');
     };
 
-    loadUser();
-  }, [id]);
+    const handleGoBacktoPage = () => {
+        if (currentUser.is_neighbor || userProfile.is_neighbor) {
+            navigate(`/users/${currentUser.id}/neighbor`);
+        } else if (!currentUser.is_neighbor || !userProfile.is_neighbor) {
+            navitage(`/users/${currentUser.id}/helper`)
+        }
 
-  const handleLogout = async () => {
-    logUserOut();
-    setCurrentUser(null);
-    navigate('/');
-  };
+    };
 
-  const handleGoBacktoPage = () => {
-    if (currentUser.is_neighbor || userProfile.is_neighbor) {
-      navigate(`/users/${currentUser.id}/neighbor`);
-    } else if (!currentUser.is_neighbor || !userProfile.is_neighbor) {
-      navitage(`/users/${currentUser.id}/helper`)
+    const handleAccept = async (e) => {
+        e.preventDefault()
+        await updateTask(profileId, "In-progress", task_id)
+        setIsAccepted(true)
+
+        // navigate(`/users/${currentUser.id}/neighbor`)
     }
 
-  };
+    if (!userProfile && !errorText) return null;
+    if (errorText) return <p>{errorText}</p>;
 
-  const handleAccept = async (e) => {
-    e.preventDefault()
-    await updateTask(profileId, "In-progress", task_id)
-    setIsAccepted(true)
+    const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
+    const profileZipcode = isCurrentUserProfile ? currentUser.zipcode : userProfile.zipcode
 
-    // navigate(`/users/${currentUser.id}/neighbor`)
-  }
+    // return <>
+    //   <h1>{profileUsername}</h1>
+    //   {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
+    //   <p>If the user had any data, here it would be</p>
+    //   <p>Fake Bio or something</p>
+    //   {
+    //     !!isCurrentUserProfile
+    //     && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
+    //   }
 
-  if (!userProfile && !errorText) return null;
-  if (errorText) return <p>{errorText}</p>;
+    // </>;
+    const profileId = isCurrentUserProfile ? currentUser.id : userProfile.id
 
-  const profileUsername = isCurrentUserProfile ? currentUser.username : userProfile.username;
-  const profileZipcode = isCurrentUserProfile ? currentUser.zipcode : userProfile.zipcode
+    return (
+        <div className="bg-[#4C7E6F] p-6 rounded-lg flex flex-col items-center w-80 mx-auto">
+            <h2 className="text-2xl font-semibold mb-2">{profileUsername}</h2>
+            <div className="mb-4">
+                <img src={AlexPfp} alt="User Profile" className="w-24 h-24 rounded-full bg-[#e1d4f9] shadow-lg flex items-center justify-center" />
+            </div>
+            <h3 className="text-xl font-medium text-[#F7F5D0] m-1">{userProfile.name || "User's Name"}</h3>
+            <h4 className="text-[#153134] text-base/[30px] italic m-1">{profileZipcode}</h4>
+            <div className="bg-[#DDD8AF] p-4 rounded-md m-2 text-center">
+                <p>{userProfile.bio} </p>
+            </div>
+            <div className="flex justify-evenly w-full m-3x">
+                {!!currentUser.is_neighbor && <button className="bg-[#E9D078] py-2 px-4 rounded-md mr-2" onClick={handleGoBacktoPage}>Go Back</button>}
+                {isCurrentUserProfile ? (
+                    <button className="bg-[#153134] text-white py-2 px-4 rounded-md" onClick={handleLogout}>Log Out</button>
+                ) : (
+                    <button
+                        className={`py-2 px-4 rounded-md ${isAccepted ? 'bg-green-500 text-white' : 'bg-green-700 text-white'}`}
+                        onClick={handleAccept}
+                    >
+                        {isAccepted ? '✔' : 'Accept Helper'}
+                    </button>
+                )}
+            </div>
 
-  // return <>
-  //   <h1>{profileUsername}</h1>
-  //   {!!isCurrentUserProfile && <button onClick={handleLogout}>Log Out</button>}
-  //   <p>If the user had any data, here it would be</p>
-  //   <p>Fake Bio or something</p>
-  //   {
-  //     !!isCurrentUserProfile
-  //     && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-  //   }
-
-  // </>;
-  const profileId = isCurrentUserProfile ? currentUser.id : userProfile.id
-
-  return (
-    <div className="bg-[#4C7E6F] p-6 rounded-lg flex flex-col items-center w-80 mx-auto">
-      <h2 className="text-2xl font-semibold mb-2">{profileUsername}</h2>
-      <div className="mb-4">
-        <img src={AlexPfp} alt="User Profile" className="w-24 h-24 rounded-full bg-[#e1d4f9] shadow-lg flex items-center justify-center" />
-      </div>
-      <h3 className="text-xl font-medium text-[#F7F5D0] m-1">{userProfile.name || "User's Name"}</h3>
-      <h4 className="text-[#153134] text-base/[30px] italic m-1">{profileZipcode}</h4>
-      <div className="bg-[#DDD8AF] p-4 rounded-md m-2 text-center">
-        <p>{userProfile.bio} </p>
-      </div>
-      <div className="flex justify-evenly w-full m-3x">
-        {!!currentUser.is_neighbor && <button className="bg-[#E9D078] py-2 px-4 rounded-md mr-2" onClick={handleGoBacktoPage}>Go Back</button>}
-        {isCurrentUserProfile ? (
-          <button className="bg-[#153134] text-white py-2 px-4 rounded-md" onClick={handleLogout}>Log Out</button>
-        ) : (
-          <button
-            className={`py-2 px-4 rounded-md ${isAccepted ? 'bg-green-500 text-white' : 'bg-green-700 text-white'}`}
-            onClick={handleAccept}
-          >
-            {isAccepted ? '✔' : 'Accept Helper'}
-          </button>
-        )}
-      </div>
-      {
-        !!isCurrentUserProfile
-        && <UpdateUsernameForm currentUser={currentUser} setCurrentUser={setCurrentUser} />
-      }
-    </div>
-  );
+        </div>
+    );
 }
