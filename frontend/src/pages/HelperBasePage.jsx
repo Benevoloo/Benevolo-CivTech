@@ -10,7 +10,7 @@ const HelperBasePage = () => {
     //help user navigate to their personal profile 
     const nav = useNavigate();
     //get the helper's account information to display it on their task page 
-    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+    const { currentUser } = useContext(CurrentUserContext);
 
     //create a state piece for errors in loading the user's information 
     const [error, setError] = useState(null)
@@ -42,7 +42,7 @@ const HelperBasePage = () => {
                 }
 
 
-                console.log({ me })
+                // console.log({ me })
             }
             if (currentUser) { // Ensure currentUser is defined before fetching
                 fetchUserInfo();

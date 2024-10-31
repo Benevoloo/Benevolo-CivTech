@@ -4,6 +4,17 @@
 
 @tailwind utilities;
 
+/* import fonts */
+@font-face {
+  font-family: 'Holen Vintage';
+  src: url(CivicTech/Benevolo-CivTech/frontend/src/styles/Fonts/Big\ Fonts/Holen_Vintage.ttf);
+}
+
+@font-face {
+  font-family: '';
+  src: url();
+}
+
 
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
@@ -50,7 +61,6 @@ nav {
   display: flex;
   justify-content: space-evenly;
   margin-right: 35px;
-  z-index: 100;
 }
 
 nav ul {
@@ -90,10 +100,10 @@ nav a {
 }
 
 
-/* Tab CSS */
+/* Helper Tab CSS */
 /* formats the tabs within the container */
 .tabs-container {
-  width: 400px;
+  width: 800px;
   margin: 20px auto;
 }
 
@@ -109,11 +119,11 @@ nav a {
   margin-right: 10px;
   border: 1px solid #ddd;
   border-bottom: none;
-  background-color: #f1f1f1;
+  background-color: #ddd;
 }
 
 .tab.active-tab {
-  background-color: #ddd;
+  background-color: #f1f1f1;
 }
 
 .content-container {}
@@ -125,15 +135,89 @@ nav a {
 .tab-content.active-content {
   display: block;
   visibility: visible;
-  border: 1px solid #ddd;
+  border: 1px solid #f1f1f1;
+  background-color: #f1f1f1;
   padding: 10px;
 }
 
 /* css for tabs above --------------------------------------------------------------------------------*/
 
+/* Helper task ticket css */
+.task-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.task-creation-date,
+.task-expiration-date {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0.5rem 0;
+}
+
+.task-desc {
+  font-size: 1rem;
+  color: #444;
+  background: #f9f9f9;
+  /* Light background */
+  padding: 1rem;
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow */
+  margin-bottom: 1rem;
+}
+
+.interest-button {
+  background-color: #007bff;
+  /* Bootstrap primary color */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  /* Rounded corners for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.interest-button.active {
+  background-color: #4C7E6F;
+  /* Bootstrap primary color */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  /* Rounded corners for button */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-style: normal;
+
+}
+
+.interest-button:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+.interest-button.active:hover {
+  background-color: #15514E;
+  /* Darker blue on hover */
+}
+
+.progress-message {
+  padding: 1rem;
+  background: #e3f2fd;
+  /* Light blue background */
+  border-radius: 10px;
+  color: #1e88e5;
+  /* Blue text */
+  margin: 1rem 0;
+}
+
+/* css for tickets above --------------------------------------------------------------------------------*/
 .userHook {
-  font-family: "MADE Carving Soft PERSONAL USE Black", sans-serif;
-  color: #153134;
+  position: fixed;
 }
 
 
