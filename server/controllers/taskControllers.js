@@ -42,6 +42,38 @@ exports.getOwnTasks = async (req, res) => {
   res.send(tasks)
 }
 
+exports.getNeighborTaskCompleted = async (req, res) => {
+  const { id } = req.params;
+
+  const tasks = await Task.getNeighborTaskCompleted(id);
+    
+  res.send(tasks);
+};
+
+exports.getHelperTaskCompleted = async (req, res) => {
+  const { id } = req.params;
+
+  const tasks = await Task.getHelperTaskCompleted(id);
+  
+  res.send(tasks);
+};
+
+exports.getNeighborTaskInProgress = async (req, res) => {
+  const { id } = req.params;
+
+  const tasks = await Task.getNeighborTaskInProgress(id);
+  
+  res.send(tasks);
+};
+
+exports.getHelperTaskInProgress = async (req, res) => {
+  const { id } = req.params;
+
+  const tasks = await Task.getHelperTaskInProgress(id);
+  
+  res.send(tasks);
+};
+
 exports.updateTask = async (req, res) => {
   const { helper_id, status } = req.body;
   const { id } = req.params

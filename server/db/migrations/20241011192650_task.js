@@ -8,7 +8,7 @@ exports.up = function(knex) {
     table.string('title').notNullable();
     table.string('body').notNullable();
     table.integer('zipcode').notNullable();
-    table.string('status').notNullable();
+    table.string('status')
     table.string('expiration_date').notNullable();
     table.integer('helper_id').references('id').inTable("users")
     table.integer('neighbor_id').references('id').inTable("users").notNullable();
