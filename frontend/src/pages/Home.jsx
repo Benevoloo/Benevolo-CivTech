@@ -305,12 +305,14 @@ export default function HomePage() {
       <footer className="bg-gray-800 py-12 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <h5 className="text-lg font-bold mb-4">Sources</h5>
-          <p className="text-sm mb-2">1. World Population Review. “New York City, New York Population 2024.” Worldpopulationreview.com, 2024.</p>
+          <p className="text-sm mb-2">1. World Population Review. "New York City, New York Population 2024." Worldpopulationreview.com, 2024.</p>
           <p className="text-sm mb-2">2. Coordinated Public Transit-Human Services Transportation Plan for NYMTC Region • Final Chapter 3.</p>
-          <p className="text-sm mb-2">3. “Spotlight: Disability and Employment in New York City.” Office of the New York City Comptroller, 2021.</p>
+          <p className="text-sm mb-2">3. "Spotlight: Disability and Employment in New York City." Office of the New York City Comptroller, 2021.</p>
           <p className="text-sm mt-4">2024 Benevolo. Made by Fiona, Chris, Alex</p>
         </div>
       </footer>
     </div>
   );
+
 }
+

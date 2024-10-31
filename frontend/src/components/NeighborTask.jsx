@@ -43,10 +43,13 @@
 
 
 import InterestButton from "./InterestsButton";
+import { deleteTask } from "../adapters/task-adapter";
 
 const NeighborTasks = ({ submittedTasks, setSubmittedTasks }) => {
   // Function to handle deleting a task from the list
+  
   const handleDelete = (index) => {
+    deleteTask()
     const updatedTasks = submittedTasks.filter((_, i) => i !== index);
     setSubmittedTasks(updatedTasks);
   };

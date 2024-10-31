@@ -2,12 +2,12 @@
 //importing useEffect as a means of refreshing the task rendering each time the site renders the helperbasepage or refreshes it
 //importing useContext to get the current user's zipcode so the tasks that are rendered match the user's zipcode 
 import { useState, useEffect, useContext } from "react"
-import CurrentUserContext from "../contexts/current-user-context";
-import { fetchHandler } from "../utils/fetchingUtils";
-import { getUser } from "../adapters/user-adapter";
-import { checkForLoggedInUser } from "../adapters/auth-adapter";
+import CurrentUserContext from "../../contexts/current-user-context";
+import { fetchHandler } from "../../utils/fetchingUtils";
+import { getUser } from "../../adapters/user-adapter";
+import { checkForLoggedInUser } from "../../adapters/auth-adapter";
 
-import HelperTask from "./HelperTaskTicket";
+import HelperTask from "../HelperTaskTicket";
 
 const HelperTaskFeed = () => {
     const { currentUser } = useContext(CurrentUserContext);
@@ -64,16 +64,16 @@ const HelperTaskFeed = () => {
                 <p>No tasks available for your zipcode.</p>
             ) : (
                 <ul>
-                {tasks.map(task => (
-                    <HelperTask key={task.id}
-                        task_id={task.id}
-                        title={task.title}
-                        body={task.body}
-                        created_at={task.created_at}
-                        expires_at={task.expiration_date}
-                    />
-                ))}
-            </ul>
+                    {tasks.map(task => (
+                        <HelperTask key={task.id}
+                            task_id={task.id}
+                            title={task.title}
+                            body={task.body}
+                            created_at={task.created_at}
+                            expires_at={task.expiration_date}
+                        />
+                    ))}
+                </ul>
             )}
         </div>
     );

@@ -58,7 +58,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 6,
       "neighbor_id": 1,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -67,7 +67,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 1,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -76,7 +76,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 7,
       "neighbor_id": 2,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -85,7 +85,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 2,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -94,7 +94,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 8,
       "neighbor_id": 3,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -103,7 +103,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 3,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -112,7 +112,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 9,
       "neighbor_id": 4,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -121,7 +121,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 4,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -130,7 +130,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 10,
       "neighbor_id": 5,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -139,7 +139,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 5,
       "zipcode": 10705,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -148,7 +148,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 16,
       "neighbor_id": 11,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -157,7 +157,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 11,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -166,7 +166,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 17,
       "neighbor_id": 12,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -175,7 +175,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 12,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -184,7 +184,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 18,
       "neighbor_id": 13,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -193,7 +193,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 13,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -202,7 +202,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 19,
       "neighbor_id": 14,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -211,7 +211,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 14,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -220,7 +220,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 20,
       "neighbor_id": 15,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": "Complete",
       "expiration_date": "10/14/2024"
     },
     {
@@ -229,7 +229,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 15,
       "zipcode": 11232,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
 
@@ -239,7 +239,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 26,
       "neighbor_id": 21,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": "Complete",
       "expiration_date": "10/14/2024"
     },
     {
@@ -248,7 +248,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 21,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -257,7 +257,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 27,
       "neighbor_id": 22,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -266,7 +266,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 22,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -275,7 +275,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 28,
       "neighbor_id": 23,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -284,7 +284,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 23,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -293,7 +293,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 29,
       "neighbor_id": 24,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -302,7 +302,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 24,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     },
     {
@@ -311,7 +311,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": 30,
       "neighbor_id": 25,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": "In-progress",
       "expiration_date": "10/14/2024"
     },
     {
@@ -320,7 +320,7 @@ await User.create('sportsfan', '1234', 'James K', null, 10025, 'Hey I like Baske
       "helper_id": null,
       "neighbor_id": 25,
       "zipcode": 10025,
-      "status": "In-progress.",
+      "status": null,
       "expiration_date": "10/14/2024"
     }
   ]);

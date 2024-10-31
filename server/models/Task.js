@@ -4,7 +4,7 @@ const authUtils = require('../utils/auth-utils');
 class Task {
 
   static async listByZipcode(zipcode) {
-    const query = `SELECT * FROM tasks where zipcode = ?`;
+    const query = `SELECT * FROM tasks WHERE zipcode = ? AND status IS NULL`;
     const { rows } = await knex.raw(query, [zipcode]);
     console.log(rows)
     return rows;
@@ -19,6 +19,30 @@ class Task {
   static async getOwnTasks(neighbor_id) {
     const query = `SELECT * FROM tasks WHERE neighbor_id = ?`
     const { rows } = await knex.raw(query, [neighbor_id])
+    return rows;
+  }
+
+  static async getNeighborTaskCompleted(id) {
+    const neighborQuery = `SELECT * FROM tasks WHERE status = 'Complete' AND neighbor_id = ?`
+    const { rows } = await knex.raw(neighborQuery, [id])
+    return rows;
+  }
+
+  static async getHelperTaskCompleted(id) {
+    const helperQuery = `SELECT * FROM tasks WHERE status = 'Complete' AND helper_id = ?`
+    const { rows } = await knex.raw(helperQuery, [id])
+    return rows;
+  }
+
+  static async getNeighborTaskInProgress(id) {
+    const neighborQuery = `SELECT * FROM tasks WHERE status = 'In-progress' AND neighbor_id = ?`
+    const { rows } = await knex.raw(neighborQuery, [id])
+    return rows;
+  }
+
+  static async getHelperTaskInProgress(id) {
+    const helperQuery = `SELECT * FROM tasks WHERE status = 'In-progress' AND helper_id = ?`
+    const { rows } = await knex.raw(helperQuery, [id])
     return rows;
   }
 
