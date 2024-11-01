@@ -69,6 +69,7 @@ const HelperBasePage = () => {
 
     return (
         <>
+
             <h1 className="welcomeHeaderHelper">{userName ? userName : error}'s Task Page</h1>
 
             <section id="helperTasks">
@@ -85,6 +86,10 @@ const HelperBasePage = () => {
                 </section>
 
             </section>
+
+
+
+
 
         </>
 

@@ -158,12 +158,12 @@ export default function UserPage() {
 
   return (
     <div className="bg-[#4C7E6F] p-6 rounded-lg flex flex-col items-center w-80 mx-auto">
-      <h2 className="text-2xl font-semibold mb-2">{profileUsername}</h2>
+      <h2 className=" text-[#F7F5D0] text-2xl font-semibold mb-2">{profileUsername}</h2>
       <div className="mb-4">
-        <img src={AlexPfp} alt="User Profile" className="w-24 h-24 rounded-full bg-[#e1d4f9] shadow-lg flex items-center justify-center" />
+        <img src={AlexPfp} alt="User Profile" className="w-24 h-30 border-radius-1 bg-[#e1d4f9] shadow-lg flex items-center justify-center" />
       </div>
       <h3 className="text-xl font-medium text-[#F7F5D0] m-1">{userProfile.name || "User's Name"}</h3>
-      <h4 className="text-[#153134] text-base/[30px] italic m-1">{profileZipcode}</h4>
+      <h4 className="text-[#F7F5D0] text-base/[30px] italic m-1">{profileZipcode}</h4>
       <div className="bg-[#DDD8AF] p-4 rounded-md m-2 text-center">
         <p>{userProfile.bio} </p>
       </div>
