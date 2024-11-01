@@ -61,9 +61,9 @@ const HelperTaskRecentFeed = () => {
 
     return (
         <section className="recentFeedContainer">
-            <h3>Tasks for Zipcode: {currentUser.zipcode}</h3>
+            <h3 className="recentTaskTitle">Tasks for Zipcode: {currentUser.zipcode}</h3>
             {tasks.length === 0 ? (
-                <p>No tasks available for your zipcode.</p>
+                <p className="empty">No tasks available for your zipcode.</p>
             ) : (
                 <ul>
                     {tasks.map(task => (
