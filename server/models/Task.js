@@ -1,5 +1,6 @@
 const knex = require('../db/knex');
 const authUtils = require('../utils/auth-utils');
+const Interest = require('./Interest');
 
 class Task {
 
@@ -68,6 +69,7 @@ class Task {
   }
 
   static async deleteTask(id) {
+    Interest.deleteAllInterestsToTask(id)
     const query = `DELETE FROM tasks WHERE id = ? RETURNING *`;
     const { rows } = await knex.raw(query, [id]);
     return rows[0];

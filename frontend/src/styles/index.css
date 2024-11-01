@@ -10,7 +10,6 @@
 body {
   /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   margin-top: 77px;
-  /* background-color: #F7F5D0; */
   /* top: 77px; */
 }
 
@@ -44,7 +43,7 @@ header {
   font-size: 3rem;
   font-weight: bold;
   text-decoration: none;
-  color: #F7F5D0;
+  color: #ddd;
 }
 
 
@@ -56,7 +55,7 @@ nav {
 
 nav ul {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   padding: 0;
   margin: 5px;
   list-style: none;
@@ -64,8 +63,9 @@ nav ul {
 
 nav a {
   display: block;
-  color: #F7F5D0;
+  color: #ddd;
   text-decoration: none;
+  font-size:26px
 }
 
 /* form {
@@ -77,9 +77,11 @@ nav a {
 
 /* automatically added by NavLink component */
 .active {
-  color: #9AC3A5;
+  color: #ddd;
   font-weight: bold;
   text-decoration: underline;
+  font-size:26px;
+  font-family:'Holen Vintage', 'Serif'
 }
 
 /* Home page CSS */

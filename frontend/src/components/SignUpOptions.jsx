@@ -50,30 +50,28 @@ import { motion } from "framer-motion";
 
 const SignUpOptions = () => {
   return (
-    <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-      <motion.div
-        className="bg-green-600 text-white p-10 rounded-lg shadow-md flex flex-col items-center"
-        whileHover={{ scale: 1.08, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      >
-        <h3 className="text-2xl font-bold mb-4">Become A Helper</h3>
-        <p className="mb-6 text-center">Are you willing to help others and connect with your community?</p>
-        <Link to="/sign-up-helper" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">
-          Sign Up As a Helper
-        </Link>
-      </motion.div>
-      <motion.div
-        className="bg-green-600 text-white p-10 rounded-lg shadow-md flex flex-col items-center"
-        whileHover={{ scale: 1.08, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)" }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-      >
-        <h3 className="text-2xl font-bold mb-4">Become A Neighbor</h3>
-        <p className="mb-6 text-center">Are you homebound, disabled, or elderly in need of assistance?</p>
-        <Link to="/sign-up-neighbor" className="bg-green-300 hover:bg-green-400 text-green-800 font-semibold px-6 py-3 rounded-md">
-          Sign Up As a Neighbor
-        </Link>
-      </motion.div>
-    </div>
+    <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
+    <motion.div
+      className="bg-[#1A3C40] text-white p-12 rounded-lg shadow-md flex flex-col items-center" // Updated to dark teal
+      whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)" }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+    >
+      <h3 className="text-3xl font-bold mb-4">Become A Helper</h3>
+      <p className="mb-6 text-center">Are you willing to help others and connect with your community?</p>
+      <Link to="/sign-up-helper" className="bg-[#4D805A] hover:bg-[#87A776] text-slate-100 font-semibold px-6 py-3 rounded-md">Sign Up As a Helper</Link> {/* Updated button colors */}
+    </motion.div>
+    <motion.div
+      className="bg-[#1A3C40] text-white p-12 rounded-lg shadow-md flex flex-col items-center" // Updated to dark teal
+      whileHover={{ scale: 1.05, boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.1)" }}
+      transition={{ type: "spring", stiffness: 200, damping: 20 }}
+    >
+      
+      {/* NEIGHBOR */}
+      <h3 className="text-3xl font-bold mb-4">Become A Neighbor</h3>
+      <p className="mb-6 text-center">Are you homebound, disabled, or elderly in need of assistance?</p>
+      <Link to="/sign-up-neighbor" className="bg-[#4D805A] hover:bg-[#87A776] text-slate-100 font-semibold px-6 py-3 rounded-md">Sign Up As a Neighbor</Link> {/* Updated button colors */}
+    </motion.div>
+  </div>
   );
 };
 
