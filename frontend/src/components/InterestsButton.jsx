@@ -48,7 +48,7 @@ const InterestButton = ({ task_id }) => {
 
   return (
     <div>
-      <button onClick={openModal} className="mt-5 w-full bg-orange-600 text-white rounded-lg hover:bg-orange-700">
+      <button onClick={openModal} className="mt-5 w-full bg-[#4D805A] text-white rounded-lg hover:bg-[#87A776]">
 
       {interestedPeople.length} helpers interested
       </button>

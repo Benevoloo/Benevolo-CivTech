@@ -63,11 +63,11 @@ const NeighborTasks = ({ submittedTasks, setSubmittedTasks }) => {
           {submittedTasks?.map((task, index) => (
             <li
               key={index}
-              className="p-4 bg-gray-100 rounded-lg shadow-md"
+              className="p-4 bg-[#F1F5F9] rounded-lg shadow-md"
             >
               <div>
                 <strong className="text-xl">{task.title}</strong>
-                <p className="text-gray-700 mt-2">{task.body}</p>
+                <p className="text-gray-700 text-lg font-medium mt-2">{task.body}</p>
                 <p className="text-sky-500 italic mt-2">
                   Expires on: {task.expiration_date}
                 </p>

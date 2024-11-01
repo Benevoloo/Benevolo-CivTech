@@ -24,8 +24,8 @@ export default function LoginPage() {
   };
 
   return ( <>
-    <div className="p-8 bg-gradient-to-r from-orange-200 to-orange-300 flex justify-center items-center min-h-screen">
-      <div className="bg-yellow-50 p-10 rounded-xl shadow-lg max-w-md w-full">
+    <div className="p-8 bg-[#ACD5D2] flex justify-center items-center min-h-screen">
+      <div className="bg-[#E6F2F1] p-10 rounded-xl shadow-lg max-w-md w-full">
         <form onSubmit={handleSubmit} aria-labelledby="login-heading">
           <h1 id="login-heading" className="text-3xl font-bold mb-8 text-center text-gray-800">
             Welcome Back!
@@ -33,7 +33,7 @@ export default function LoginPage() {
           
           {/* Username */}
           <div className="relative z-0 w-full mb-6 group">
-            <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">Username</label>
+            <label htmlFor="username" className="block text-lg font-medium text-gray-800 mb-2">Username</label>
             <input
               type="text"
               autoComplete="username"
@@ -46,7 +46,7 @@ export default function LoginPage() {
           
           {/* Password */}
           <div className="relative z-0 w-full mb-6 group">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+            <label htmlFor="password" className="block text-lg font-medium text-gray-800 mb-2">Password</label>
             <input
               type="password"
               autoComplete="current-password"
