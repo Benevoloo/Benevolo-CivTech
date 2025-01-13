@@ -99,6 +99,16 @@ We serve people with disabilities or elderly people who need a helping hand. We 
 - Issues with privacy, security, and usability in some platforms.
 
 ---
+### Technologies Used
+- The following technologies were used to create Benevolo:
+- HTML: For structuring the web application.
+- CSS: For styling the interface and ensuring a visually appealing design.
+- Framer Motion: For adding animations and transitions to enhance the user experience.
+- Tailwind CSS: For rapid and responsive UI design.
+- React: For building a dynamic and interactive front-end.
+- Postgres: As the database for storing user and task information.
+- Express: For creating a robust and scalable back-end API.
+---
 
 ## Sources
 
