@@ -99,7 +99,7 @@ We serve people with disabilities or elderly people who need a helping hand. We 
 - Issues with privacy, security, and usability in some platforms.
 
 ---
-### Technologies Used
+## Technologies Used
 - The following technologies were used to create Benevolo:
 - HTML: For structuring the web application.
 - CSS: For styling the interface and ensuring a visually appealing design.
